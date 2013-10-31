@@ -55,7 +55,7 @@
   <ItemGroup>
     <Compile Include="TestAsserts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestContainer.cs" />
+    <Compile Include="TestTestContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotTest\DotTest.csproj">
