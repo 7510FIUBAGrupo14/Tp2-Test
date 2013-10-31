@@ -19,9 +19,10 @@ namespace Test
             var reporte = container.ExcecuteAll();
 
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(reporte.ExistErrors);
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(reporte.Errors[0] == "Test");
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(reporte.Errors[0].Contains("ITestCaseProxy: Test"));
         }
 
+        [TestMethod]
         public void Add4BadTestCasesTest()
         {
             var testCase1 = new Mock<ITestCase>();
@@ -32,10 +33,10 @@ namespace Test
 
             var container = new TestContainer();
             testCase1.Setup(x => x.Excecute()).Throws(new AssertException("One"));
-            testCase1.Setup(x => x.Excecute()).Throws(new AssertException("Two"));
-            testCase1.Setup(x => x.Excecute());
-            testCase1.Setup(x => x.Excecute()).Throws(new AssertException("Four"));
-            testCase1.Setup(x => x.Excecute()).Throws(new AssertException("Five"));
+            testCase2.Setup(x => x.Excecute()).Throws(new AssertException("Two"));
+            testCase3.Setup(x => x.Excecute());
+            testCase4.Setup(x => x.Excecute()).Throws(new AssertException("Four"));
+            testCase5.Setup(x => x.Excecute()).Throws(new AssertException("Five"));
 
             container.AddTestCase(testCase1.Object);
             container.AddTestCase(testCase2.Object);
@@ -46,10 +47,10 @@ namespace Test
             var reporte = container.ExcecuteAll();
 
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(reporte.ExistErrors);
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(reporte.Errors[0] == "One");
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(reporte.Errors[1] == "Two");
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(reporte.Errors[2] == "Four");
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(reporte.Errors[3] == "Five");
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(reporte.Errors[0].Contains("ITestCaseProxy: One"));
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(reporte.Errors[1].Contains("ITestCaseProxy: Two"));
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(reporte.Errors[2].Contains("ITestCaseProxy: Four"));
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(reporte.Errors[3].Contains("ITestCaseProxy: Five"));
         }
     }
 }
