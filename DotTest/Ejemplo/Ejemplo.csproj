@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Casa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCases\AreEqualDistinctIntFail.cs" />
@@ -60,8 +59,9 @@
     <Compile Include="TestCases\AreNotSameStringsOk.cs" />
     <Compile Include="TestCases\AreSameStringsFail.cs" />
     <Compile Include="TestCases\AreSameStringsOk.cs" />
-    <Compile Include="TestCases\CaseCasaSePinta.cs" />
     <Compile Include="TestCases\AreEqualStringsFail.cs" />
+    <Compile Include="TestCases\FailVoid.cs" />
+    <Compile Include="TestCases\FailWithMessage.cs" />
     <Compile Include="TestCases\IsFalseFail.cs" />
     <Compile Include="TestCases\IsFalseOk.cs" />
     <Compile Include="TestCases\IsInstanceOfTypeFail.cs" />

@@ -12,7 +12,7 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             var test = new TestContainer();
-            test.AddTestCase(new CaseCasaSePinta());
+        
             test.AddTestCase(new AreEqualStringsFail());
             test.AddTestCase(new AreEqualStringsOk());
             test.AddTestCase(new AreEqualObjectsFail());
@@ -41,6 +41,8 @@ namespace ConsoleApplication1
             test.AddTestCase(new IsInstanceOfTypeFail());
             test.AddTestCase(new IsNotInstanceOfTypeOk());
             test.AddTestCase(new IsNotInstanceOfTypeFail());
+            test.AddTestCase(new FailVoid());
+            test.AddTestCase(new FailWithMessage());
 
             var resultado = test.ExcecuteAll();
         }

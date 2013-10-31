@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using DotTest;
 
 namespace Test
 {
@@ -8,10 +9,10 @@ namespace Test
     /// </summary>
     
     [TestClass]
-    public class AssertTests
+    public class TestAsserts
     {
         [TestMethod]
-        [ExpectedException(typeof(Exception),"Not Equal")]
+        [ExpectedException(typeof(AssertException),"Not Equal")]
         public void AreEqualStringsFail()
         {
             var a = "a";
@@ -28,7 +29,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Not Equal")]
+        [ExpectedException(typeof(AssertException), "Not Equal")]
         public void AreEqualObjectsFail()
         {
             var a = new { linea = "a" };
@@ -45,7 +46,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Not Equal")]
+        [ExpectedException(typeof(AssertException), "Not Equal")]
         public void AreEqualDistinctIntFail()
         {
             var a = 1;
@@ -64,7 +65,7 @@ namespace Test
         //-------------------------------//
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Equal")]
+        [ExpectedException(typeof(AssertException), "Equal")]
         public void AreNotEqualStringsFail()
         {
             var a = "a";
@@ -81,7 +82,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Equal")]
+        [ExpectedException(typeof(AssertException), "Equal")]
         public void AreNotEqualObjectsFail()
         {
             var a = new { linea = "a" };
@@ -98,7 +99,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Equal")]
+        [ExpectedException(typeof(AssertException), "Equal")]
         public void AreNotEqualIntFail()
         {
             var a = 1;
@@ -125,7 +126,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Are Not Same")]
+        [ExpectedException(typeof(AssertException), "Are Not Same")]
         public void AreSameStringsFail()
         {
             var a = new { linea = "a" };
@@ -144,7 +145,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Are Same")]
+        [ExpectedException(typeof(AssertException), "Are Same")]
         public void AreNotSameStringsFail()
         {
             var a = "a";
@@ -161,7 +162,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Is False")]
+        [ExpectedException(typeof(AssertException), "Is False")]
         public void IsFalseFail()
         {
             DotTest.Assert.IsFalse(true);
@@ -176,7 +177,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Is True")]
+        [ExpectedException(typeof(AssertException), "Is True")]
         public void IsTrueFail()
         {
             DotTest.Assert.IsTrue(false);
@@ -191,7 +192,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Is Not Null")]
+        [ExpectedException(typeof(AssertException), "Is Not Null")]
         public void IsNullFail()
         {
             DotTest.Assert.IsNull(1);
@@ -206,7 +207,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Is Null")]
+        [ExpectedException(typeof(AssertException), "Is Null")]
         public void IsNotNullFail()
         {
             DotTest.Assert.IsNotNull(null);
@@ -221,7 +222,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Is Not Instance Of Type")]
+        [ExpectedException(typeof(AssertException), "Is Not Instance Of Type")]
         public void IsInstanceOfTypeFail()
         {
             DotTest.Assert.IsInstanceOfType("a", 1.GetType());
@@ -236,7 +237,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Is Instance Of Type")]
+        [ExpectedException(typeof(AssertException), "Is Instance Of Type")]
         public void IsNotInstanceOfTypeFail()
         {
             DotTest.Assert.IsNotInstanceOfType("a", "a".GetType());
@@ -245,14 +246,14 @@ namespace Test
         //-------------------------------//
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "")]
+        [ExpectedException(typeof(AssertException), "")]
         public void FailVoid()
         {
             DotTest.Assert.Fail();
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Hi")]
+        [ExpectedException(typeof(AssertException), "Hi")]
         public void FailWithMessage()
         {
             DotTest.Assert.Fail("Hi");

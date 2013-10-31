@@ -13,7 +13,7 @@ namespace DotTest
         {
             if ( !a.Equals(b))
             {
-                throw new Exception("Not Equal");
+                throw new AssertException("Not Equal");
             }
         }
 
@@ -21,7 +21,7 @@ namespace DotTest
         {
             if (a.Equals(b))
             {
-                throw new Exception("Equal");
+                throw new AssertException("Equal");
             }
         }
 
@@ -29,7 +29,7 @@ namespace DotTest
         {
             if (!Object.ReferenceEquals(a, b))
             {
-                throw new Exception("Are Not Same");
+                throw new AssertException("Are Not Same");
             }
         }
 
@@ -37,25 +37,25 @@ namespace DotTest
         {
             if (Object.ReferenceEquals(a, b))
             {
-                throw new Exception("Are Same");
+                throw new AssertException("Are Same");
             }
         }
 
         public static void Fail()
         {
-            throw new Exception("Fail");
+            throw new AssertException("Fail");
         }
 
         public static void Fail(string message)
         {
-            throw new Exception(message);
+            throw new AssertException(message);
         }
 
         public static void IsFalse(Boolean boolean)
         {
             if (boolean)
             {
-                throw new Exception("Is False");
+                throw new AssertException("Is False");
             }
         }
 
@@ -63,7 +63,7 @@ namespace DotTest
         {
             if (!boolean)
             {
-                throw new Exception("Is True");
+                throw new AssertException("Is True");
             }
         }
 
@@ -71,7 +71,7 @@ namespace DotTest
         {
             if (a != null)
             {
-                throw new Exception("Is Not Null");
+                throw new AssertException("Is Not Null");
             }
         }
 
@@ -79,7 +79,7 @@ namespace DotTest
         {
             if (a == null)
             {
-                throw new Exception("Is Null");
+                throw new AssertException("Is Null");
             }
         }
 
@@ -87,7 +87,7 @@ namespace DotTest
         {
             if (a.GetType() != type)
             {
-                throw new Exception("Is Not Instance Of Type");
+                throw new AssertException("Is Not Instance Of Type");
             }
         }
 
@@ -95,7 +95,7 @@ namespace DotTest
         {
             if (a.GetType() == type)
             {
-                throw new Exception("Is Instance Of Type");
+                throw new AssertException("Is Instance Of Type");
             }
         }
     

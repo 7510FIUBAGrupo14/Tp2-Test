@@ -30,7 +30,7 @@ namespace DotTest
                 {
                     test.Excecute();
                 }
-                catch(Exception e)
+                catch(AssertException e)
                 {
                     report.Errors.Add(test + ": " + e.Message);
                 }
