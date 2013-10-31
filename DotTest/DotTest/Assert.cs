@@ -23,17 +23,17 @@ namespace DotTest
 
         public static void AreSame(object a, object b)
         {
-            if (Object.ReferenceEquals(a, b))
+            if (!Object.ReferenceEquals(a, b))
             {
-                throw new Exception("Are Same");
+                throw new Exception("Are Not Same");
             }
         }
 
         public static void AreNotSame(object a, object b)
         {
-            if ( !Object.ReferenceEquals(a, b))
+            if (Object.ReferenceEquals(a, b))
             {
-                throw new Exception("Are Not Same");
+                throw new Exception("Are Same");
             }
         }
 
@@ -49,7 +49,7 @@ namespace DotTest
 
         public static void IsFalse(Boolean boolean)
         {
-            if (! boolean)
+            if (boolean)
             {
                 throw new Exception("Is False");
             }
@@ -57,7 +57,7 @@ namespace DotTest
 
         public static void IsTrue(Boolean boolean)
         {
-            if (boolean)
+            if (!boolean)
             {
                 throw new Exception("Is True");
             }
@@ -65,33 +65,33 @@ namespace DotTest
 
         public static void IsNull(object a)
         {
-            if (a == null)
-            {
-                throw new Exception("Is Null");
-            }
-        }
-
-        public static void IsNotNull(object a)
-        {
             if (a != null)
             {
                 throw new Exception("Is Not Null");
             }
         }
 
+        public static void IsNotNull(object a)
+        {
+            if (a == null)
+            {
+                throw new Exception("Is Null");
+            }
+        }
+
         public static void IsInstanceOfType(object a, Type type)
         {
-            if (a.GetType() == type)
+            if (a.GetType() != type)
             {
-                throw new Exception("Is Instance Of Type");
+                throw new Exception("Is Not Instance Of Type");
             }
         }
 
         public static void IsNotInstanceOfType(object a, Type type)
         {
-            if (a.GetType() != type)
+            if (a.GetType() == type)
             {
-                throw new Exception("Is Not Instance Of Type");
+                throw new Exception("Is Instance Of Type");
             }
         }
     
