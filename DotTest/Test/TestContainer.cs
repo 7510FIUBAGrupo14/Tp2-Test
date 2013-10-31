@@ -1,5 +1,7 @@
 ﻿using System;
+using DotTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace Test
 {
@@ -9,6 +11,7 @@ namespace Test
         [TestMethod]
         public void TestMethod1()
         {
+            var testCase = new Mock<ITestCase>();
         }
     }
 }
