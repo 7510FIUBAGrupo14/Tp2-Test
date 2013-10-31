@@ -241,5 +241,21 @@ namespace Test
         {
             DotTest.Assert.IsNotInstanceOfType("a", "a".GetType());
         }
+
+        //-------------------------------//
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "")]
+        public void FailVoid()
+        {
+            DotTest.Assert.Fail();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Hi")]
+        public void FailWithMessage()
+        {
+            DotTest.Assert.Fail("Hi");
+        }
     }
 }
