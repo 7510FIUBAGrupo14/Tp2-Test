@@ -32,7 +32,7 @@ namespace DotTest
                 }
                 catch(AssertException e)
                 {
-                    report.Errors.Add(test + ": " + e.Message);
+                    report.Errors.Add(test.ToString().Split('.').Last() + ": " + e.Message);
                 }
             }
             return report;
