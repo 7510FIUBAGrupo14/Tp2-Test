@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace DotTest
 {
+    /// <summary> 
+    /// Container of user test cases. Allows to store new user test and to excecute them all usabillity
+    /// </summary>
+
     public class TestContainer
     {
         private readonly List<ITestCase> _testCases;

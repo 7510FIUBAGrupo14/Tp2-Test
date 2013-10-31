@@ -3,6 +3,10 @@ using System;
 
 namespace DotTest
 {
+    /// <summary> 
+    /// List of Assert Methods provided for User usage on customer test cases development. 
+    /// </summary>
+    
     public static class Assert
     {
         public static void AreEqual(object a, object b)

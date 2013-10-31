@@ -3,6 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Test
 {
+    /// <summary> 
+    /// NUnit tests to ensure code coverage
+    /// </summary>
+    
     [TestClass]
     public class AssertTests
     {

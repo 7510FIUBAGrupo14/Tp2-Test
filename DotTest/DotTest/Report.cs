@@ -2,6 +2,10 @@
 
 namespace DotTest
 {
+    /// <summary> 
+    /// Stores test messages from test case excecutions performed by the Test container 
+    /// </summary>
+    
     public class Report
     {
         public bool ExistErrors { get { return Errors.Count > 0; } }

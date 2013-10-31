@@ -3,6 +3,10 @@ using System.Drawing;
 
 namespace ConsoleApplication1
 {
+    /// <summary> 
+    /// Example clase as en example of library usage
+    /// </summary>
+    
     class Casa
     {
         public Color Color { get; private set; }

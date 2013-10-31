@@ -3,6 +3,10 @@ using DotTest;
 
 namespace ConsoleApplication1
 {
+    /// <summary> 
+    /// Small main program as en example of library usage 
+    /// </summary>
+    
     class Program
     {
         static void Main(string[] args)
