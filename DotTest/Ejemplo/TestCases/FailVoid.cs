@@ -1,14 +1,28 @@
-﻿using System.Drawing;
+﻿
 using DotTest;
+using DotTest.Abstracts;
 
 
 namespace ConsoleApplication1.TestCases
 {
-    public class FailVoid : ITestCase
+    public class FailVoid : TestCase
     {
-        public void Excecute()
+        public FailVoid(string nombre)
+            : base(nombre)
+        {
+        }
+
+        public override void Setup()
+        {
+        }
+
+        public override void Execute(Report reporte = null)
         {
             Assert.Fail();
+        }
+
+        public override void TearDown()
+        {
         }
     }
 }

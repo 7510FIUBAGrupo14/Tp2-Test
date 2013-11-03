@@ -39,11 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstracts\TestCase.cs" />
     <Compile Include="Assert.cs" />
     <Compile Include="AssertException.cs" />
     <Compile Include="Report.cs" />
-    <Compile Include="TestContainer.cs" />
-    <Compile Include="ITestCase.cs" />
+    <Compile Include="Abstracts\TestSuite.cs" />
+    <Compile Include="Interface\ITest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

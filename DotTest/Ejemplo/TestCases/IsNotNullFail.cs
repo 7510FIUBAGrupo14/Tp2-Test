@@ -1,14 +1,27 @@
-﻿using System.Drawing;
+﻿
 using DotTest;
+using DotTest.Abstracts;
 
 
 namespace ConsoleApplication1.TestCases
 {
-    public class IsNotNullFail : ITestCase
+    public class IsNotNullFail : TestCase
     {
-        public void Excecute()
+        public IsNotNullFail(string nombre)
+            : base(nombre)
         {
+        }
+
+        public override void Setup()
+        {
+        }
+
+        public override void Execute(Report reporte = null)        {
             Assert.IsNotNull(null);
+        }
+
+        public override void TearDown()
+        {
         }
     }
 }

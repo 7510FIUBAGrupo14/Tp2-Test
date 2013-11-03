@@ -74,6 +74,7 @@
     <Compile Include="TestCases\IsNullOk.cs" />
     <Compile Include="TestCases\IsTrueFail.cs" />
     <Compile Include="TestCases\IsTrueOk.cs" />
+    <Compile Include="TestClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

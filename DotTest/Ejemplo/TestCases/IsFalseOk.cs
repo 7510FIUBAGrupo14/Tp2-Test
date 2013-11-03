@@ -1,14 +1,28 @@
-﻿using System.Drawing;
+﻿
 using DotTest;
+using DotTest.Abstracts;
 
 
 namespace ConsoleApplication1.TestCases
 {
-    public class IsFalseOk : ITestCase
+    public class IsFalseOk : TestCase
     {
-        public void Excecute()
+        public IsFalseOk(string nombre)
+            : base(nombre)
+        {
+        }
+
+        public override void Setup()
+        {
+        }
+
+        public override void Execute(Report reporte = null)
         {
             Assert.IsFalse(false);
+        }
+
+        public override void TearDown()
+        {
         }
     }
 }
