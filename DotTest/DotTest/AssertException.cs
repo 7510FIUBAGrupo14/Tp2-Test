@@ -6,4 +6,8 @@ namespace DotTest
     {
         public AssertException(string message) : base(message) { }
     }
+
+    public class AssertSuccess : Exception
+    {
+    }
 }

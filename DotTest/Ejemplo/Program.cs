@@ -1,6 +1,6 @@
 ﻿using ConsoleApplication1.TestCases;
 using DotTest;
-using DotTest.Abstracts;
+using DotTest.ImpTest;
 
 namespace ConsoleApplication1
 {
@@ -12,9 +12,9 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            var test = new TestClass("Suit");
-            var test2 = new TestClass("SubSuit");
-            test.AddTest(test2);
+            var test = new TestSuite("Suit");
+            var test2 = new TestSuite("SubSuit");
+            
             test.AddTest(new AreEqualStringsFail("AreEqualStringsFail"));
             test.AddTest(new AreEqualStringsOk("AreEqualStringsOk"));
             test.AddTest(new AreEqualObjectsFail("AreEqualObjectsFail"));
@@ -45,10 +45,12 @@ namespace ConsoleApplication1
             test2.AddTest(new IsNotInstanceOfTypeFail("IsNotInstanceOfTypeFail"));
             test2.AddTest(new FailVoid("FailVoid"));
             test2.AddTest(new FailWithMessage("FailWithMessage"));
+            test.AddTest(test2);
 
+            var r = new TestRunner();
+            r.AddTest(test);
+            r.Execute();
 
-            var reporte = new Report();
-            test.Execute(reporte);
         }
     }
 }

@@ -15,6 +15,7 @@ namespace DotTest
             {
                 throw new AssertException("Not Equal");
             }
+            throw new AssertSuccess();
         }
 
         public static void AreNotEqual(object a, object b)
@@ -23,6 +24,7 @@ namespace DotTest
             {
                 throw new AssertException("Equal");
             }
+            throw new AssertSuccess();
         }
 
         public static void AreSame(object a, object b)
@@ -31,6 +33,7 @@ namespace DotTest
             {
                 throw new AssertException("Are Not Same");
             }
+            throw new AssertSuccess();
         }
 
         public static void AreNotSame(object a, object b)
@@ -39,6 +42,7 @@ namespace DotTest
             {
                 throw new AssertException("Are Same");
             }
+            throw new AssertSuccess();
         }
 
         public static void Fail()
@@ -57,6 +61,7 @@ namespace DotTest
             {
                 throw new AssertException("Is False");
             }
+            throw new AssertSuccess();
         }
 
         public static void IsTrue(Boolean boolean)
@@ -65,6 +70,7 @@ namespace DotTest
             {
                 throw new AssertException("Is True");
             }
+            throw new AssertSuccess();
         }
 
         public static void IsNull(object a)
@@ -73,6 +79,7 @@ namespace DotTest
             {
                 throw new AssertException("Is Not Null");
             }
+            throw new AssertSuccess();
         }
 
         public static void IsNotNull(object a)
@@ -81,6 +88,7 @@ namespace DotTest
             {
                 throw new AssertException("Is Null");
             }
+            throw new AssertSuccess();
         }
 
         public static void IsInstanceOfType(object a, Type type)
@@ -89,6 +97,7 @@ namespace DotTest
             {
                 throw new AssertException("Is Not Instance Of Type");
             }
+            throw new AssertSuccess();
         }
 
         public static void IsNotInstanceOfType(object a, Type type)
@@ -97,6 +106,7 @@ namespace DotTest
             {
                 throw new AssertException("Is Instance Of Type");
             }
+            throw new AssertSuccess();
         }
     
     }

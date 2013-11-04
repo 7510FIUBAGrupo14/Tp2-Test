@@ -10,9 +10,9 @@
         string Path { get; set; }
         string Name { get; }
         void Setup();
-        void Execute(Report reporte = null);
+        void Execute(ITestResult testResult = null);
         void TearDown();
 
-        void AddTest(ITest test);
+        bool AddTest(ITest test);
     }
 }

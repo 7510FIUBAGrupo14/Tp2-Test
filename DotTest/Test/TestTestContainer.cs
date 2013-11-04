@@ -1,6 +1,5 @@
 ﻿using System;
 using DotTest;
-using DotTest.Abstracts;
 using DotTest.Interface;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;

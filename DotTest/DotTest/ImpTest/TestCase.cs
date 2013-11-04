@@ -1,7 +1,7 @@
 ﻿
 using DotTest.Interface;
 
-namespace DotTest.Abstracts
+namespace DotTest.ImpTest
 {
     public abstract class TestCase : ITest
     {
@@ -9,7 +9,7 @@ namespace DotTest.Abstracts
         public string Name { get; private set; }
         public string Path { get; set; }
         public abstract void Setup();
-        public abstract void Execute(Report reporte = null);
+        public abstract void Execute(ITestResult reporte = null);
         public abstract void TearDown();
 
         protected TestCase(string name)
@@ -17,6 +17,9 @@ namespace DotTest.Abstracts
             Name = name;
         }
         
-        public void AddTest(ITest test){}
+        public bool AddTest(ITest test)
+        {
+            return false;
+        }
     }
 }

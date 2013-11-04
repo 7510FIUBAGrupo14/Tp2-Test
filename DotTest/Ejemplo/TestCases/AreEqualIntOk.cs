@@ -1,5 +1,6 @@
 ﻿using DotTest;
-using DotTest.Abstracts;
+using DotTest.ImpTest;
+using DotTest.Interface;
 
 
 namespace ConsoleApplication1.TestCases
@@ -15,7 +16,7 @@ namespace ConsoleApplication1.TestCases
         {
         }
 
-        public override void Execute(Report reporte = null)
+        public override void Execute(ITestResult testResult = null)
         {
             var a = 1;
             var b = 1;
