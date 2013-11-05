@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DotTest.ImpTest;
 using DotTest.Interface;
 
 namespace DotTest.ImpResult
@@ -22,8 +23,10 @@ namespace DotTest.ImpResult
 
         public string Print()
         {
-            var retorno = "\n"+_test.FullName + "\n";
-            retorno += _testsResult.Aggregate("---------------\n", (current, testResult) => current + testResult.Print());
+            var retorno = "";
+
+            if (_testsResult.Any(x => x.GetType() == typeof(TestCaseResult))) retorno = "\n" + _test.FullName + "\n---------------\n";
+            retorno += _testsResult.Aggregate("", (current, testResult) => current + testResult.Print());
             return retorno;
         }
 
