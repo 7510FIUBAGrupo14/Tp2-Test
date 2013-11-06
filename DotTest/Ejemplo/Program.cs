@@ -14,7 +14,8 @@ namespace ConsoleApplication1
         {
             var test = new TestSuite("Suit");
             var test2 = new TestSuite("SubSuit");
-            
+            var test3 = new TestSuite("SubSubSuit");
+
             test.AddTest(new AreEqualStringsFail("AreEqualStringsFail"));
             test.AddTest(new AreEqualStringsOk("AreEqualStringsOk"));
             test.AddTest(new AreEqualObjectsFail("AreEqualObjectsFail"));
@@ -41,10 +42,11 @@ namespace ConsoleApplication1
             test2.AddTest(new IsNotNullFail("IsNotNullFail"));
             test2.AddTest(new IsInstanceOfTypeOk("IsInstanceOfTypeOk"));
             test2.AddTest(new IsInstanceOfTypeFail("IsInstanceOfTypeFail"));
-            test2.AddTest(new IsNotInstanceOfTypeOk("IsNotInstanceOfTypeOk"));
-            test2.AddTest(new IsNotInstanceOfTypeFail("IsNotInstanceOfTypeFail"));
-            test2.AddTest(new FailVoid("FailVoid"));
-            test2.AddTest(new FailWithMessage("FailWithMessage"));
+            test3.AddTest(new IsNotInstanceOfTypeOk("IsNotInstanceOfTypeOk"));
+            test3.AddTest(new IsNotInstanceOfTypeFail("IsNotInstanceOfTypeFail"));
+            test3.AddTest(new FailVoid("FailVoid"));
+            test3.AddTest(new FailWithMessage("FailWithMessage"));
+            test2.AddTest(test3);
             test.AddTest(test2);
 
             var r = new TestRunner();

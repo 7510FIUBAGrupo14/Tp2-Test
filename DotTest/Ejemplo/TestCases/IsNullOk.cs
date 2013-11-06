@@ -12,16 +12,16 @@ namespace ConsoleApplication1.TestCases
         {
         }
 
-        public override void Setup()
+        public override void Setup(IContext context)
         {
         }
 
-        public override void Execute(ITestResult testResult = null)
+        public override void Execute(IContext context, ITestResult testResult = null)
         {
             Assert.IsNull(null);
         }
 
-        public override void TearDown()
+        public override void TearDown(IContext context)
         {
         }
     }

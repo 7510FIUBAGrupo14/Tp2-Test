@@ -40,10 +40,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\ResultType.cs" />
+    <Compile Include="ImpTest\Context.cs" />
     <Compile Include="ImpTest\TestCase.cs" />
     <Compile Include="Assert.cs" />
     <Compile Include="AssertException.cs" />
     <Compile Include="ImpTest\TestRunner.cs" />
+    <Compile Include="Interface\IContext.cs" />
     <Compile Include="Interface\ITestResult.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="ImpTest\TestSuite.cs" />

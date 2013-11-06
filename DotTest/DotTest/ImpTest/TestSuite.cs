@@ -16,7 +16,17 @@ namespace DotTest.ImpTest
         private readonly List<ITest> _tests;
         public string FullName { get { return Path + "\\" + Name; } }
         public string Name { get; set; }
-        public string Path { get; set; }
+        private string _path;
+        public string Path {
+            get { return _path; } 
+            set {
+                _path = value;
+                foreach (var i in _tests)
+	            {
+                    i.Path = FullName;		
+	            }
+            }
+        }
 
         public TestSuite(string name)
         {
@@ -35,10 +45,10 @@ namespace DotTest.ImpTest
             return false;
         }
 
-        public virtual void Setup() { }
-        public virtual void TearDown() { }
+        public virtual void Setup(IContext context) { }
+        public virtual void TearDown(IContext context) { }
 
-        public void Execute(ITestResult resultFull)
+        public void Execute(IContext context, ITestResult resultFull)
         {
             var result = new TestSuiteResult(this);
             resultFull.AddResult(result);
@@ -46,10 +56,10 @@ namespace DotTest.ImpTest
             {
                 try
                 {
-                    test.Setup();
+                    test.Setup(context);
 
-                    
-                    test.Execute(result);
+
+                    test.Execute(context, result);
                 }
                 catch (AssertException e)
                 {
@@ -65,12 +75,12 @@ namespace DotTest.ImpTest
                 }
                 finally
                 {
-                    test.TearDown();
+                    test.TearDown(context); //,context);
                 }
             }
         }
 
-        public void ExecuteByName(string name, ITestResult resultFull)
+        public void ExecuteByName(string name, IContext context, ITestResult resultFull)
         {
             var result = new TestSuiteResult(this);
             resultFull.AddResult(result);
@@ -78,9 +88,9 @@ namespace DotTest.ImpTest
             {
                 try
                 {
-                    test.Setup();
+                    test.Setup(context);
                     
-                    test.ExecuteByName(name, result);
+                    test.ExecuteByName(name, context, result);
                 }
                 catch (AssertException e)
                 {
@@ -96,7 +106,7 @@ namespace DotTest.ImpTest
                 }
                 finally
                 {
-                    test.TearDown();
+                    test.TearDown(context);
                 }
             }
         }

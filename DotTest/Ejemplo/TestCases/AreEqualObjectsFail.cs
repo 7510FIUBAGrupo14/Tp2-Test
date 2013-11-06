@@ -11,18 +11,18 @@ namespace ConsoleApplication1.TestCases
         {
         }
 
-        public override void Setup()
+        public override void Setup(IContext context)
         {
         }
 
-        public override void Execute(ITestResult testResult = null)
+        public override void Execute(IContext context, ITestResult testResult = null)
         {
             var a = new { linea = "a" };
             var b = new { linea = "b" };
             Assert.AreEqual(a, b);
         }
 
-        public override void TearDown()
+        public override void TearDown(IContext context)
         {
         }
 

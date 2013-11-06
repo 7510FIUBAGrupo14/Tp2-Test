@@ -9,15 +9,15 @@ namespace DotTest.ImpTest
         public string FullName { get{ return Path + "\\" + Name;} }
         public string Name { get; private set; }
         public string Path { get; set; }
-        public abstract void Setup();
-        public abstract void Execute(ITestResult reporte = null);
-        public abstract void TearDown();
+        public abstract void Setup(IContext context);
+        public abstract void Execute(IContext context, ITestResult reporte = null);
+        public abstract void TearDown(IContext context);
 
-        public virtual void ExecuteByName(string name, ITestResult reporte) 
+        public virtual void ExecuteByName(string name, IContext context, ITestResult reporte) 
         {
-            Match match = Regex.Match(Name, name); //
+            Match match = Regex.Match(Name, name); 
             if (match.Success){
-                Execute(reporte);
+                Execute(context, reporte);
             }
         }
 

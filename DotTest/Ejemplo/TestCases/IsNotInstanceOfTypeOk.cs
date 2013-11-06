@@ -11,16 +11,16 @@ namespace ConsoleApplication1.TestCases
         {
         }
 
-        public override void Setup()
+        public override void Setup(IContext context)
         {
         }
 
-        public override void Execute(ITestResult testResult = null)
+        public override void Execute(IContext context, ITestResult testResult = null)
         {
             Assert.IsNotInstanceOfType("a", 1.GetType());
         }
 
-        public override void TearDown()
+        public override void TearDown(IContext context)
         {
         }
     }
