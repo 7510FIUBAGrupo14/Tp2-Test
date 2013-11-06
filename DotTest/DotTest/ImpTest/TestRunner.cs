@@ -22,6 +22,14 @@ namespace DotTest.ImpTest
             var result = new TestSuiteResult(testContainer);
             testContainer.Execute(result);
             var r = result.Print();
-        } 
+
+        }
+
+        public void ExecuteByName(string name)
+        {
+            var result = new TestSuiteResult(testContainer);
+            testContainer.ExecuteByName(name, result);
+            var r = result.Print();
+        }
     }
 }

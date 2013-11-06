@@ -69,5 +69,36 @@ namespace DotTest.ImpTest
                 }
             }
         }
+
+        public void ExecuteByName(string name, ITestResult resultFull)
+        {
+            var result = new TestSuiteResult(this);
+            resultFull.AddResult(result);
+            foreach (var test in _tests)
+            {
+                try
+                {
+                    test.Setup();
+                    
+                    test.ExecuteByName(name, result);
+                }
+                catch (AssertException e)
+                {
+                    result.AddResult(new TestCaseResult(test, ResultType.Fail));
+                }
+                catch (AssertSuccess e)
+                {
+                    result.AddResult(new TestCaseResult(test, ResultType.Ok));
+                }
+                catch (Exception e)
+                {
+                    result.AddResult(new TestCaseResult(test, ResultType.Error));
+                }
+                finally
+                {
+                    test.TearDown();
+                }
+            }
+        }
     }
 }

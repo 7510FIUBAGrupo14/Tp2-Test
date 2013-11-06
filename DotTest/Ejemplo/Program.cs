@@ -51,6 +51,11 @@ namespace ConsoleApplication1
             r.AddTest(test);
             r.Execute();
 
+            var r2 = new TestRunner();
+            r2.AddTest(test);
+            string pattern = @"False";
+            r2.ExecuteByName(pattern);
+            r2.Execute();
         }
     }
 }

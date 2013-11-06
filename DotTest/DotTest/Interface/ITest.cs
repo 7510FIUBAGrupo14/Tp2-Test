@@ -11,6 +11,7 @@
         string Name { get; }
         void Setup();
         void Execute(ITestResult testResult = null);
+        void ExecuteByName(string name, ITestResult testResult);
         void TearDown();
 
         bool AddTest(ITest test);

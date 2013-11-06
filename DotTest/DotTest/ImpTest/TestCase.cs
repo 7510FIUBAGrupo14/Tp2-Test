@@ -1,5 +1,6 @@
 ﻿
 using DotTest.Interface;
+using System.Text.RegularExpressions;
 
 namespace DotTest.ImpTest
 {
@@ -11,6 +12,14 @@ namespace DotTest.ImpTest
         public abstract void Setup();
         public abstract void Execute(ITestResult reporte = null);
         public abstract void TearDown();
+
+        public virtual void ExecuteByName(string name, ITestResult reporte) 
+        {
+            Match match = Regex.Match(Name, name); //
+            if (match.Success){
+                Execute(reporte);
+            }
+        }
 
         protected TestCase(string name)
         {
