@@ -7,7 +7,7 @@ namespace Test
     public class TestContext
     {
         [TestMethod]
-        public void Add1()
+        public void AddOneKey()
         {
             var context = new Context();
             context.Add("key", "object");
@@ -16,7 +16,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void Add2()
+        public void AddTwoTimesTheSameKey()
         {
             var context = new Context();
             context.Add("key", "object");
@@ -26,13 +26,35 @@ namespace Test
         }
 
         [TestMethod]
-        public void Remove()
+        public void RemoveOneKey()
         {
             var context = new Context();
             context.Add("key", "object");
             context.Remove("key");
 
             Assert.AreEqual(context.Get("key"), null);
+        }
+
+        [TestMethod]
+        public void RemoveUnexpectedKey()
+        {
+            var context = new Context();
+            context.Remove("key");
+
+            Assert.AreEqual(context.Get("key"), null);
+        }
+
+        [TestMethod]
+        public void AddTwoKeysAndRemoveTheFirstKey()
+        {
+            var context = new Context();
+            context.Add("key1", "object");
+            context.Add("key2", 2);
+
+            context.Remove("key1");
+
+            Assert.AreEqual(context.Get("key1"), null);
+            Assert.AreEqual(context.Get("key2"), 2);
         }
 
     }

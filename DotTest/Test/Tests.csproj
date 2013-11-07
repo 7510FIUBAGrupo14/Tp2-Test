@@ -53,12 +53,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="TestTestSuiteResult.cs" />
-    <Compile Include="TestTestCaseResult.cs" />
-    <Compile Include="TestContext.cs" />
+    <Compile Include="TestResult\TestTestSuiteResult.cs" />
+    <Compile Include="TestResult\TestTestCaseResult.cs" />
+    <Compile Include="TestImp\TestContext.cs" />
     <Compile Include="TestAsserts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestTestContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotTest\DotTest.csproj">

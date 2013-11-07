@@ -47,7 +47,6 @@
     <Compile Include="ImpTest\TestRunner.cs" />
     <Compile Include="Interface\IContext.cs" />
     <Compile Include="Interface\ITestResult.cs" />
-    <Compile Include="Report.cs" />
     <Compile Include="ImpTest\TestSuite.cs" />
     <Compile Include="Interface\ITest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

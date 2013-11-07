@@ -21,6 +21,7 @@ namespace Test
         }
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void AreEqualStringsOk()
         {
             var a = "a";
@@ -38,6 +39,7 @@ namespace Test
         }
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void AreEqualObjectsOk()
         {
             var a = new { linea = "a" };
@@ -55,6 +57,7 @@ namespace Test
         }
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void AreEqualIntOk()
         {
             var a = 1;
@@ -74,6 +77,7 @@ namespace Test
         }
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void AreNotEqualStringsOk()
         {
             var a = "a";
@@ -91,6 +95,7 @@ namespace Test
         }
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void AreNotEqualObjectsOk()
         {
             var a = new { linea = "a" };
@@ -108,6 +113,7 @@ namespace Test
         }
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void AreNotEqualIntOk()
         {
             var a = 1;
@@ -118,6 +124,7 @@ namespace Test
         //-------------------------------//
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void AreSameStringsOk()
         {
             var a = "a";
@@ -137,6 +144,7 @@ namespace Test
         //-------------------------------//
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void AreNotSameStringsOk()
         {
             var a = new { linea = "a" };
@@ -156,6 +164,7 @@ namespace Test
         //-------------------------------//
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void IsFalseOk()
         {
             DotTest.Assert.IsFalse(false);
@@ -171,6 +180,7 @@ namespace Test
         //-------------------------------//
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void IsTrueOk()
         {
             DotTest.Assert.IsTrue(true);
@@ -186,6 +196,7 @@ namespace Test
         //-------------------------------//
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void IsNullOk()
         {
             DotTest.Assert.IsNull(null);
@@ -201,6 +212,7 @@ namespace Test
         //-------------------------------//
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void IsNotNullOk()
         {
             DotTest.Assert.IsNotNull(1);
@@ -216,6 +228,7 @@ namespace Test
         //-------------------------------//
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void IsInstanceOfTypeOk()
         {
             DotTest.Assert.IsInstanceOfType("a","a".GetType());
@@ -231,6 +244,7 @@ namespace Test
         //-------------------------------//
 
         [TestMethod]
+        [ExpectedException(typeof(AssertSuccess))]
         public void IsNotInstanceOfTypeOk()
         {
             DotTest.Assert.IsNotInstanceOfType("a", 1.GetType());
