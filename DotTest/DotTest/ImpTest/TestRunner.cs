@@ -24,8 +24,8 @@ namespace DotTest.ImpTest
             var result = new TestSuiteResult(testContainer);
             var context = new Context();
             testContainer.Execute(context, result);
-            int total = result.OkCount() + result.ErrorCount() + result.FailureCount();
-            PrintFile(result.Print() + "\n[failure] Summary\n" + "\n---------------\n---------------\n" + "Runs: " + total + "\nErrors: " + result.ErrorCount() + "\nFailures: " + result.FailureCount() + "\n");
+
+            PrintFile(result.Print() + result.PrintSummary());
         }
 
         public void ExecuteByName(string name)
@@ -33,14 +33,14 @@ namespace DotTest.ImpTest
             var result = new TestSuiteResult(testContainer);
             var context = new Context();
             testContainer.ExecuteByName(name, context, result);
-            int total = result.OkCount() + result.ErrorCount() + result.FailureCount();
-            PrintFile(result.Print() + "\n[failure] Summary\n" + "\n---------------\n---------------\n" + "Runs: " + total + "\nErrors: " + result.ErrorCount() + "\nFailures: " + result.FailureCount() + "\n");
+
+            PrintFile(result.Print() + result.PrintSummary());
         }
 
         private void PrintFile(string text)
         {
-            string currentDir = Environment.CurrentDirectory;
-            DirectoryInfo directory = new DirectoryInfo(currentDir);
+            var currentDir = Environment.CurrentDirectory;
+            var directory = new DirectoryInfo(currentDir);
             File.WriteAllText(directory.FullName + "\\TestReport_" + DateTime.Now.ToFileTime(), text);
         }
     }

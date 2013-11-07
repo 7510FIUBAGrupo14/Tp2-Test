@@ -10,40 +10,19 @@ namespace DotTest.ImpResult
         private ITest _test;
         private ResultType _e;
 
-        public int OkCount() 
+        public int OkCount()
         {
-            if (_e == ResultType.Ok)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
+            return _e == ResultType.Ok ? 1 : 0;
         }
 
-        public int ErrorCount() 
+        public int ErrorCount()
         {
-            if (_e == ResultType.Error)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
+            return _e == ResultType.Error ? 1 : 0;
         }
 
-        public int FailureCount() 
+        public int FailureCount()
         {
-            if (_e == ResultType.Fail)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
+            return _e == ResultType.Fail ? 1 : 0;
         }
 
         public TestCaseResult(ITest test, ResultType e)
@@ -52,16 +31,14 @@ namespace DotTest.ImpResult
             _e = e;
         }
 
-      /*  public void Initialize()
-        {
-            Runs = 0;
-            Errors = 0;
-            Failures = 0;
-        }*/
-
         public string Print()
         {
-            return "[" + _e.ToString() + "] " + _test.Name + "\n";
+            return "[" + _e + "] " + _test.Name + "\n";
+        }
+
+        public string PrintSummary()
+        {
+            return "";
         }
 
         public void AddResult(ITestResult testResult)
