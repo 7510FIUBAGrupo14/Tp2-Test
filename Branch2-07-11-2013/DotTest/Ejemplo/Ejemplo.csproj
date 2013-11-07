@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{505174CD-2CFD-416A-B887-FD2C2890F956}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <AssemblyName>ConsoleApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCases\AreEqualDistinctIntFail.cs" />
+    <Compile Include="TestCases\AreEqualIntOk.cs" />
+    <Compile Include="TestCases\AreEqualObjectsFail.cs" />
+    <Compile Include="TestCases\AreEqualObjectsOk.cs" />
+    <Compile Include="TestCases\AreEqualStringsOk.cs" />
+    <Compile Include="TestCases\AreNotEqualIntFail.cs" />
+    <Compile Include="TestCases\AreNotEqualIntOk.cs" />
+    <Compile Include="TestCases\AreNotEqualObjectsFail.cs" />
+    <Compile Include="TestCases\AreNotEqualObjectsOk.cs" />
+    <Compile Include="TestCases\AreNotEqualStringsFail.cs" />
+    <Compile Include="TestCases\AreNotEqualStringsOk.cs" />
+    <Compile Include="TestCases\AreNotSameStringsFail.cs" />
+    <Compile Include="TestCases\AreNotSameStringsOk.cs" />
+    <Compile Include="TestCases\AreSameStringsFail.cs" />
+    <Compile Include="TestCases\AreSameStringsOk.cs" />
+    <Compile Include="TestCases\AreEqualStringsFail.cs" />
+    <Compile Include="TestCases\FailVoid.cs" />
+    <Compile Include="TestCases\FailWithMessage.cs" />
+    <Compile Include="TestCases\IsFalseFail.cs" />
+    <Compile Include="TestCases\IsFalseOk.cs" />
+    <Compile Include="TestCases\IsInstanceOfTypeFail.cs" />
+    <Compile Include="TestCases\IsInstanceOfTypeOk.cs" />
+    <Compile Include="TestCases\IsNotInstanceOfTypeFail.cs" />
+    <Compile Include="TestCases\IsNotInstanceOfTypeOk.cs" />
+    <Compile Include="TestCases\IsNotNullFail.cs" />
+    <Compile Include="TestCases\IsNotNullOk.cs" />
+    <Compile Include="TestCases\IsNullFail.cs" />
+    <Compile Include="TestCases\IsNullOk.cs" />
+    <Compile Include="TestCases\IsTrueFail.cs" />
+    <Compile Include="TestCases\IsTrueOk.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotTest\DotTest.csproj">
+      <Project>{ba77af25-06aa-413f-976c-5941916bf31f}</Project>
+      <Name>DotTest</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
