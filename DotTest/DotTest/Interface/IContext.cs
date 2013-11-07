@@ -9,5 +9,6 @@
         void Add(string key,object obj);
         void Remove(string key);
         T Get<T>(string key);
+        object Get(string key);
     }
 }

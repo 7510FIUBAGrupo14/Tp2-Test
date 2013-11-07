@@ -1,6 +1,5 @@
 ﻿using System;
 using DotTest.Enum;
-using DotTest.ImpTest;
 using DotTest.Interface;
 
 namespace DotTest.ImpResult

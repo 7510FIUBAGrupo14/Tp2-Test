@@ -1,13 +1,9 @@
 ﻿using DotTest.Interface;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotTest.ImpTest
 {
-    class Context : IContext
+    public class Context : IContext
     {
         private Dictionary<string, object> fixture;
 
@@ -17,6 +13,10 @@ namespace DotTest.ImpTest
         }
         public void Add(string key, object obj)
         {
+            if (fixture.ContainsKey(key))
+            {
+                fixture.Remove(key);
+            }
             fixture.Add(key, obj);
         }
 
@@ -30,5 +30,9 @@ namespace DotTest.ImpTest
             return (T)fixture[key];
         }
 
+        public object Get(string key)
+        {
+            return !fixture.ContainsKey(key) ? null : fixture[key];
+        }
     }
 }

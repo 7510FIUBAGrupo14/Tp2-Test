@@ -1,5 +1,4 @@
-﻿
-using DotTest.Interface;
+﻿using DotTest.Interface;
 using System.Text.RegularExpressions;
 
 namespace DotTest.ImpTest
@@ -15,7 +14,7 @@ namespace DotTest.ImpTest
 
         public virtual void ExecuteByName(string name, IContext context, ITestResult reporte) 
         {
-            Match match = Regex.Match(Name, name); 
+            var match = Regex.Match(Name, name); 
             if (match.Success){
                 Execute(context, reporte);
             }
