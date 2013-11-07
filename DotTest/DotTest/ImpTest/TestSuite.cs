@@ -67,7 +67,7 @@ namespace DotTest.ImpTest
                 }
                 catch (AssertSuccess e)
                 {
-                    result.AddResult(new TestCaseResult(test, ResultType.Ok));
+                    result.AddResult(new TestCaseResult(test, ResultType.Ok)); 
                 }
                 catch (Exception e)
                 {
@@ -75,7 +75,7 @@ namespace DotTest.ImpTest
                 }
                 finally
                 {
-                    test.TearDown(context); //,context);
+                    test.TearDown(context); 
                 }
             }
         }
@@ -90,19 +90,19 @@ namespace DotTest.ImpTest
                 {
                     test.Setup(context);
                     
-                    test.ExecuteByName(name, context, result);
+                    test.ExecuteByName(name, context, result); 
                 }
                 catch (AssertException e)
                 {
-                    result.AddResult(new TestCaseResult(test, ResultType.Fail));
+                    result.AddResult(new TestCaseResult(test, ResultType.Fail));                   
                 }
                 catch (AssertSuccess e)
                 {
-                    result.AddResult(new TestCaseResult(test, ResultType.Ok));
+                    result.AddResult(new TestCaseResult(test, ResultType.Ok)); 
                 }
                 catch (Exception e)
                 {
-                    result.AddResult(new TestCaseResult(test, ResultType.Error));
+                    result.AddResult(new TestCaseResult(test, ResultType.Error)); 
                 }
                 finally
                 {

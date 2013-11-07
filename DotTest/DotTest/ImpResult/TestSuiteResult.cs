@@ -8,12 +8,52 @@ namespace DotTest.ImpResult
     public class TestSuiteResult : ITestResult
     {
         private List<ITestResult> _testsResult;
-        private ITest _test;
+        public ITest _test{ get; set; }
+
+        /*public int Runs { get; set; }
+        public int Errors { get; set; }
+        public int Failures { get; set; }*/
 
         public TestSuiteResult(ITest test)
         {
             _test = test;
             _testsResult = new List<ITestResult>();
+        }
+
+        /*public void Initialize()
+        {
+            Runs = 0;
+            Errors = 0;
+            Failures = 0;
+        }*/
+
+        public int OkCount()
+        {
+            var cantidad = 0;
+            foreach (var t in _testsResult){
+                cantidad += t.OkCount();
+            }
+            return cantidad;
+        }
+
+        public int ErrorCount()
+        {
+            var cantidad = 0;
+            foreach (var t in _testsResult)
+            {
+                cantidad += t.ErrorCount();
+            }
+            return cantidad;
+        }
+
+        public int FailureCount()
+        {
+            var cantidad = 0;
+            foreach (var t in _testsResult)
+            {
+                cantidad += t.FailureCount();
+            }
+            return cantidad;
         }
 
         public void AddTestResult(ITestResult testResult)

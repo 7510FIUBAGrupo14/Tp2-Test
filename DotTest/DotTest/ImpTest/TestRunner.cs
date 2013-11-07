@@ -24,7 +24,8 @@ namespace DotTest.ImpTest
             var result = new TestSuiteResult(testContainer);
             var context = new Context();
             testContainer.Execute(context, result);
-            PrintFile(result.Print());
+            int total = result.OkCount() + result.ErrorCount() + result.FailureCount();
+            PrintFile(result.Print() + "\n[failure] Summary\n" + "\n---------------\n---------------\n" + "Runs: " + total + "\nErrors: " + result.ErrorCount() + "\nFailures: " + result.FailureCount() + "\n");
         }
 
         public void ExecuteByName(string name)
@@ -32,7 +33,8 @@ namespace DotTest.ImpTest
             var result = new TestSuiteResult(testContainer);
             var context = new Context();
             testContainer.ExecuteByName(name, context, result);
-            PrintFile(result.Print());
+            int total = result.OkCount() + result.ErrorCount() + result.FailureCount();
+            PrintFile(result.Print() + "\n[failure] Summary\n" + "\n---------------\n---------------\n" + "Runs: " + total + "\nErrors: " + result.ErrorCount() + "\nFailures: " + result.FailureCount() + "\n");
         }
 
         private void PrintFile(string text)
