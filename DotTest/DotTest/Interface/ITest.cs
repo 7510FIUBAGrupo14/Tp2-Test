@@ -10,9 +10,12 @@
         string Path { get; set; }
         string Name { get; }
         void Setup(IContext context);
-        void Execute(IContext context, ITestResult testResult = null);
-        void ExecuteByName(string name, IContext context, ITestResult testResult);
+        void Execute(IContext context);
         void TearDown(IContext context);
+
+        void Run(IContext context, IOutputComponent comand);
+        //void ExecuteByName(string name, IContext context, ITestResult testResult);
+        
 
         bool AddTest(ITest test);
     }

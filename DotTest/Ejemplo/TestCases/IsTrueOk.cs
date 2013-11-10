@@ -16,7 +16,7 @@ namespace ConsoleApplication1.TestCases
         {
         }
 
-        public override void Execute(IContext context, ITestResult testResult = null)
+        public override void Execute(IContext context)
         {
             Assert.IsTrue(true);
         }

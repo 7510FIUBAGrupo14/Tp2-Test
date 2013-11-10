@@ -1,6 +1,8 @@
-﻿using ConsoleApplication1.TestCases;
+﻿using System;
+using ConsoleApplication1.TestCases;
 using DotTest;
 using DotTest.ImpTest;
+using DotTest.Output;
 
 namespace ConsoleApplication1
 {
@@ -51,13 +53,13 @@ namespace ConsoleApplication1
 
             var r = new TestRunner();
             r.AddTest(test);
-            r.Execute();
+            r.Run(new DuoComponent());
 
-            var r2 = new TestRunner();
-            r2.AddTest(test);
-            string pattern = @"False";
-            r2.ExecuteByName(pattern);
-            r2.Execute();
+            //var r2 = new TestRunner();
+            //r2.AddTest(test);
+            //string pattern = @"False";
+            //r2.ExecuteByName(pattern);
+            //r2.Execute();
         }
     }
 }

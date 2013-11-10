@@ -15,7 +15,7 @@ namespace ConsoleApplication1.TestCases
         {
         }
 
-        public override void Execute(IContext context, ITestResult testResult = null)
+        public override void Execute(IContext context)
         {
             var a = new { linea = "a" };
             var b = new { linea = "b" };

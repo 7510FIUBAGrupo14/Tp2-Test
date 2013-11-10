@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DotTest.Dto;
 using DotTest.Enum;
 using DotTest.ImpResult;
 using DotTest.Interface;
@@ -47,68 +48,56 @@ namespace DotTest.ImpTest
 
         public virtual void Setup(IContext context) { }
         public virtual void TearDown(IContext context) { }
+        public void Execute(IContext context) { }
 
-        public void Execute(IContext context, ITestResult resultFull)
+        public void Run(IContext context, IOutputComponent component)
         {
-            var result = new TestSuiteResult(this);
-            resultFull.AddResult(result);
+            var dto = new ReportDto()
+            {
+                Name = Name,
+                Path = Path,
+                FullName = FullName,
+                StartTime = DateTime.Now
+            };
+            component.PrintTestSuite(dto);
+
+            Setup(context);
             foreach (var test in _tests)
             {
-                try
-                {
-                    test.Setup(context);
-
-
-                    test.Execute(context, result);
-                }
-                catch (AssertException e)
-                {
-                    result.AddResult(new TestCaseResult(test, ResultType.Fail));
-                }
-                catch (AssertSuccess e)
-                {
-                    result.AddResult(new TestCaseResult(test, ResultType.Ok)); 
-                }
-                catch (Exception e)
-                {
-                    result.AddResult(new TestCaseResult(test, ResultType.Error));
-                }
-                finally
-                {
-                    test.TearDown(context); 
-                }
+                test.Run(context,component);
             }
+            TearDown(context);
         }
 
-        public void ExecuteByName(string name, IContext context, ITestResult resultFull)
-        {
-            var result = new TestSuiteResult(this);
-            resultFull.AddResult(result);
-            foreach (var test in _tests)
-            {
-                try
-                {
-                    test.Setup(context);
+        //public void ExecuteByName(string name, IContext context, ITestResult resultFull)
+        //{
+        //    var result = new TestSuiteResult(this);
+        //    resultFull.AddResult(result);
+        //    foreach (var test in _tests)
+        //    {
+        //        try
+        //        {
+        //            test.Setup(context);
                     
-                    test.ExecuteByName(name, context, result); 
-                }
-                catch (AssertException e)
-                {
-                    result.AddResult(new TestCaseResult(test, ResultType.Fail));                   
-                }
-                catch (AssertSuccess e)
-                {
-                    result.AddResult(new TestCaseResult(test, ResultType.Ok)); 
-                }
-                catch (Exception e)
-                {
-                    result.AddResult(new TestCaseResult(test, ResultType.Error)); 
-                }
-                finally
-                {
-                    test.TearDown(context);
-                }
-            }
-        }
+        //            test.ExecuteByName(name, context, result); 
+        //        }
+        //        catch (AssertException e)
+        //        {
+        //            result.AddResult(new TestCaseResult(test, ResultType.Fail));                   
+        //        }
+        //        catch (AssertSuccess e)
+        //        {
+        //            result.AddResult(new TestCaseResult(test, ResultType.Ok)); 
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            result.AddResult(new TestCaseResult(test, ResultType.Error)); 
+        //        }
+        //        finally
+        //        {
+        //            test.TearDown(context);
+        //        }
+        //    }
+        //}
     }
 }

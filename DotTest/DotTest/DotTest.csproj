@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\ReportDto.cs" />
     <Compile Include="Enum\ResultType.cs" />
     <Compile Include="ImpTest\Context.cs" />
     <Compile Include="ImpTest\TestCase.cs" />
@@ -46,13 +47,18 @@
     <Compile Include="AssertException.cs" />
     <Compile Include="ImpTest\TestRunner.cs" />
     <Compile Include="Interface\IContext.cs" />
+    <Compile Include="Interface\IOutputComponent.cs" />
     <Compile Include="Interface\ITestResult.cs" />
     <Compile Include="ImpTest\TestSuite.cs" />
     <Compile Include="Interface\ITest.cs" />
+    <Compile Include="Output\ConsoleComponent.cs" />
+    <Compile Include="Output\DuoComponent.cs" />
+    <Compile Include="Output\FileComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ImpResult\TestCaseResult.cs" />
     <Compile Include="ImpResult\TestSuiteResult.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

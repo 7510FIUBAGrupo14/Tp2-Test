@@ -1,4 +1,5 @@
-﻿using DotTest.ImpResult;
+﻿using DotTest.Dto;
+using DotTest.ImpResult;
 using DotTest.Interface;
 using System;
 using System.IO;
@@ -19,29 +20,29 @@ namespace DotTest.ImpTest
             return testContainer.AddTest(test);
         }
 
-        public void Execute()
+        public void Run(IOutputComponent component)
         {
-            var result = new TestSuiteResult(testContainer);
             var context = new Context();
-            testContainer.Execute(context, result);
+            //testContainer.Execute(context, result);
+            testContainer.Run(context, component);
 
-            PrintFile(result.Print() + result.PrintSummary());
+            //PrintFile(result.Print() + result.PrintSummary());
         }
 
-        public void ExecuteByName(string name)
-        {
-            var result = new TestSuiteResult(testContainer);
-            var context = new Context();
-            testContainer.ExecuteByName(name, context, result);
+        //public void ExecuteByName(string name)
+        //{
+        //    var result = new TestSuiteResult(testContainer);
+        //    var context = new Context();
+        //    testContainer.ExecuteByName(name, context, result);
 
-            PrintFile(result.Print() + result.PrintSummary());
-        }
+        //    PrintFile(result.Print() + result.PrintSummary());
+        //}
 
-        private void PrintFile(string text)
-        {
-            var currentDir = Environment.CurrentDirectory;
-            var directory = new DirectoryInfo(currentDir);
-            File.WriteAllText(directory.FullName + "\\TestReport_" + DateTime.Now.ToFileTime(), text);
-        }
+        //private void PrintFile(string text)
+        //{
+        //    var currentDir = Environment.CurrentDirectory;
+        //    var directory = new DirectoryInfo(currentDir);
+        //    File.WriteAllText(directory.FullName + "\\TestReport_" + DateTime.Now.ToFileTime(), text);
+        //}
     }
 }
