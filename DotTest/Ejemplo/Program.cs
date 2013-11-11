@@ -1,6 +1,4 @@
-﻿using System;
-using ConsoleApplication1.TestCases;
-using DotTest;
+﻿using ConsoleApplication1.TestCases;
 using DotTest.ImpTest;
 using DotTest.Output;
 
@@ -15,7 +13,7 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             var test = new TestSuite("Suit");
-            var test2 = new TestSuite("SubSuit");
+            var test2 = new TestSuite("Sub");
             var test3 = new TestSuite("SubSubSuit");
 
             test.AddTest(new AreEqualStringsFail("AreEqualStringsFail"));
@@ -53,7 +51,8 @@ namespace ConsoleApplication1
 
             var r = new TestRunner();
             r.AddTest(test);
-            r.Run(new DuoComponent());
+            var filter = new Filter(@"False", @"Suit");
+            r.Run(new DuoComponent(),filter);
 
             //var r2 = new TestRunner();
             //r2.AddTest(test);

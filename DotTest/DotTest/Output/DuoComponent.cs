@@ -26,5 +26,11 @@ namespace DotTest.Output
             _file.PrintTestSuite(dto);
         }
 
+        public void PrintSummary()
+        {
+            _console.PrintSummary();
+            _file.PrintSummary();
+        }
+
     }
 }

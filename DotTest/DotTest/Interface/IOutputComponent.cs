@@ -6,5 +6,6 @@ namespace DotTest.Interface
     {
         void PrintTestCase(ReportDto dto);
         void PrintTestSuite(ReportDto dto);
+        void PrintSummary();
     }
 }

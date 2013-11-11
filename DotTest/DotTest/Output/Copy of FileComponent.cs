@@ -6,7 +6,7 @@ using DotTest.Interface;
 
 namespace DotTest.Output
 {
-    public class FileComponent : IOutputComponent
+    public class XMLComponent : IOutputComponent
     {
         private string _fileName;
         private int _errorCount;
@@ -39,7 +39,7 @@ namespace DotTest.Output
             Print(ret);
         }
 
-        public FileComponent()
+        public XMLComponent()
         {
             var currentDir = Environment.CurrentDirectory;
             var directory = new DirectoryInfo(currentDir);

@@ -1,4 +1,5 @@
-﻿using DotTest;
+﻿using System.Collections.Generic;
+using DotTest;
 using DotTest.ImpTest;
 using DotTest.Interface;
 
@@ -7,7 +8,7 @@ namespace ConsoleApplication1.TestCases
 {
     public class AreEqualDistinctIntFail : TestCase
     {
-        public AreEqualDistinctIntFail(string nombre) : base(nombre)
+        public AreEqualDistinctIntFail(string nombre): base(nombre, new List<string>())
         {
         }
 

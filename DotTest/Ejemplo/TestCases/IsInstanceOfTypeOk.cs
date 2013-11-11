@@ -1,4 +1,5 @@
-﻿using DotTest;
+﻿using System.Collections.Generic;
+using DotTest;
 using DotTest.ImpTest;
 using DotTest.Interface;
 
@@ -8,7 +9,7 @@ namespace ConsoleApplication1.TestCases
     public class IsInstanceOfTypeOk : TestCase
     {
         public IsInstanceOfTypeOk(string nombre)
-            : base(nombre)
+            : base(nombre, new List<string>())
         {
         }
 

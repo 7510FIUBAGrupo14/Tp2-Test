@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DotTest.Dto;
 using DotTest.Enum;
 using DotTest.Interface;
@@ -11,20 +12,24 @@ namespace DotTest.ImpTest
         public string FullName { get{ return Path + "\\" + Name;} }
         public string Name { get; private set; }
         public string Path { get; set; }
+        public bool Skip { get; set; }
+        public bool Filterable { get; private set; }
+        public IEnumerable<string> Tags { get; private set; }
         public abstract void Setup(IContext context);
         public abstract void Execute(IContext context);
         public abstract void TearDown(IContext context);
 
-        //public virtual void ExecuteByName(string name, IContext context, ITestResult reporte) 
-        //{
-        //    var match = Regex.Match(Name, name); 
-        //    if (match.Success){
-        //        Execute(context, reporte);
-        //    }
-        //}
-
-        public void Run(IContext context, IOutputComponent component)
+        protected TestCase(string name, IEnumerable<string> tags, bool filterable = true)
         {
+            Name = name;
+            Tags = new List<string>(tags);
+            Filterable = filterable;
+        }
+
+        public void Run(IContext context, IOutputComponent component, IFilter filter = null)
+        {
+            if (filter != null && filter.Skip(this)) return;
+
             var dto = new ReportDto
                 {
                     Name = Name,
@@ -56,11 +61,6 @@ namespace DotTest.ImpTest
             component.PrintTestCase(dto);
         }
 
-        protected TestCase(string name)
-        {
-            Name = name;
-        }
-        
         public bool AddTest(ITest test)
         {
             return false;

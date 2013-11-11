@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using DotTest.Dto;
-using DotTest.Enum;
-using DotTest.ImpResult;
 using DotTest.Interface;
 
 namespace DotTest.ImpTest
@@ -28,10 +26,15 @@ namespace DotTest.ImpTest
 	            }
             }
         }
+        public bool Skip { get; set; }
+        public bool Filterable { get; private set; }
+        public IEnumerable<string> Tags { get; private set; }
 
-        public TestSuite(string name)
+        public TestSuite(string name, bool filtrable = true)
         {
             _tests = new List<ITest>();
+            Tags = new List<string>();
+            Filterable = filtrable;
             Name = name;
         }
         
@@ -50,9 +53,11 @@ namespace DotTest.ImpTest
         public virtual void TearDown(IContext context) { }
         public void Execute(IContext context) { }
 
-        public void Run(IContext context, IOutputComponent component)
+        public void Run(IContext context, IOutputComponent component, IFilter filter = null)
         {
-            var dto = new ReportDto()
+            if (filter != null && filter.Skip(this)) return;
+
+            var dto = new ReportDto
             {
                 Name = Name,
                 Path = Path,
@@ -64,40 +69,9 @@ namespace DotTest.ImpTest
             Setup(context);
             foreach (var test in _tests)
             {
-                test.Run(context,component);
+                test.Run(context,component,filter);
             }
             TearDown(context);
         }
-
-        //public void ExecuteByName(string name, IContext context, ITestResult resultFull)
-        //{
-        //    var result = new TestSuiteResult(this);
-        //    resultFull.AddResult(result);
-        //    foreach (var test in _tests)
-        //    {
-        //        try
-        //        {
-        //            test.Setup(context);
-                    
-        //            test.ExecuteByName(name, context, result); 
-        //        }
-        //        catch (AssertException e)
-        //        {
-        //            result.AddResult(new TestCaseResult(test, ResultType.Fail));                   
-        //        }
-        //        catch (AssertSuccess e)
-        //        {
-        //            result.AddResult(new TestCaseResult(test, ResultType.Ok)); 
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            result.AddResult(new TestCaseResult(test, ResultType.Error)); 
-        //        }
-        //        finally
-        //        {
-        //            test.TearDown(context);
-        //        }
-        //    }
-        //}
     }
 }
