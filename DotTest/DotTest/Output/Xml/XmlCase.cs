@@ -51,14 +51,24 @@ namespace DotTest.Output.Xml
 
         public XElement Print()
         {
-            return new XElement("testCase",
+            var r =  new XElement("testCase",
                                  new XAttribute("name", Name),
                                  new XAttribute("failures", GeneralAttributes["failures"].ToString()),
                                  new XAttribute("errors", GeneralAttributes["errors"].ToString()),
                                  new XAttribute("time", GeneralAttributes["time"].ToString()),
-                                 new XElement("skipped", Attributes["skipped"]),
-                                 new XElement("error", new XAttribute("Type", Attributes["resultType"]),
+                                 new XElement("skipped", Attributes["skipped"]));
+
+            if (GeneralAttributes["errors"] == 1)
+            {
+                r.Add(new XElement("error", new XAttribute("Type", Attributes["resultType"]),
                                                        new XAttribute("Message", Attributes["resultMessage"])));
+            }
+            if (GeneralAttributes["failures"] == 1)
+            {
+                r.Add(new XElement("failure", new XAttribute("Type", Attributes["resultType"]),
+                                                       new XAttribute("Message", Attributes["resultMessage"])));
+            }
+            return r;
         }
     }
 }

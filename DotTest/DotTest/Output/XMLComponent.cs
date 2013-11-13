@@ -1,4 +1,6 @@
-﻿using System.Xml.Linq;
+﻿using System;
+using System.IO;
+using System.Xml.Linq;
 using DotTest.Dto;
 using DotTest.Interface;
 using DotTest.Output.Xml;
@@ -7,6 +9,7 @@ namespace DotTest.Output
 {
     public class XmlComponent : IOutputComponent
     {
+        private string _fileName;
         private XmlRoot testRoot;
         public void PrintTestCase(ReportDto dto)
         {
@@ -21,12 +24,22 @@ namespace DotTest.Output
         public void PrintSummary()
         {
             var aaa = testRoot.Print();
-            var bla = new XDocument(aaa);
+            Print(new XDocument(aaa).ToString());
         }
 
         public XmlComponent()
         {
+            var currentDir = Environment.CurrentDirectory;
+            var directory = new DirectoryInfo(currentDir);
             testRoot = new XmlRoot();
+            _fileName = directory.FullName + "/XmlTestReport_" + DateTime.Now.ToFileTime();
+        }
+
+        private void Print(string str)
+        {
+            var fileS = new StreamWriter(_fileName, false);
+            fileS.Write(str);
+            fileS.Close();
         }
 
     }
