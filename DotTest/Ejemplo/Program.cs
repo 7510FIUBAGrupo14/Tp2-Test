@@ -52,7 +52,7 @@ namespace ConsoleApplication1
             var r = new TestRunner();
             r.AddTest(test);
 
-            r.Run(new XMLComponent(),null);
+            r.Run(new XmlComponent(),null);
 
             //var r2 = new TestRunner();
             //r2.AddTest(test);

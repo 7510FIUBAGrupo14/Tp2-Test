@@ -56,6 +56,10 @@
     <Compile Include="Output\XMLComponent.cs" />
     <Compile Include="Output\DuoComponent.cs" />
     <Compile Include="Output\FileComponent.cs" />
+    <Compile Include="Output\Xml\IXmlNode.cs" />
+    <Compile Include="Output\Xml\XmlCase.cs" />
+    <Compile Include="Output\Xml\XmlSuite.cs" />
+    <Compile Include="Output\Xml\XmlRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
