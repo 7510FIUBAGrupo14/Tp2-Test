@@ -30,14 +30,8 @@ namespace DotTest.ImpTest
         {
             if (filter != null && filter.Skip(this)) return;
 
-            var dto = new ReportDto
-                {
-                    Name = Name,
-                    Path = Path,
-                    FullName = FullName,
-                    StartTime = DateTime.Now,
-                    Skiped = Skip
-                };
+            var dto = ReportDto.FromTestCaseFactory(this);
+
             Setup(context);
             try
             {

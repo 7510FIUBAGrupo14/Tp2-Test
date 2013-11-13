@@ -22,7 +22,7 @@ namespace Test
         public void b()
         {
             var tags = new List<string>();
-            var filter = new Filter("b",tags);
+            var filter = new Filter("","b",tags);
 
             var test = new TestSuite("a");
 
@@ -48,7 +48,7 @@ namespace Test
 
             var test = new TestSuite("a");
 
-            Assert.IsFalse(filter.Skip(test));
+            Assert.IsTrue(filter.Skip(test));
         }
 
         [TestMethod]

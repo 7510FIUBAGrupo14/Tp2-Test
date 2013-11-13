@@ -1,5 +1,6 @@
 ﻿using System;
 using DotTest.Enum;
+using DotTest.ImpTest;
 
 namespace DotTest.Dto
 {
@@ -12,5 +13,24 @@ namespace DotTest.Dto
         public DateTime EndTime { get; set; }
         public ResultType Result { get; set; }
         public bool Skiped { get; set; }
+
+        private ReportDto(string name, string path, string fullname, bool skiped)
+        {
+            Name = name;
+            Path = path;
+            FullName = fullname;
+            StartTime = DateTime.Now;
+            Skiped = skiped;
+        }
+
+        public static ReportDto FromTestSuiteFactory(TestSuite suite)
+        {
+            return new ReportDto(suite.Name, suite.Path, suite.FullName, suite.Skip);
+        }
+
+        public static ReportDto FromTestCaseFactory(TestCase cases)
+        {
+            return new ReportDto(cases.Name, cases.Path, cases.FullName, cases.Skip);
+        }
     }
 }
