@@ -8,7 +8,7 @@ namespace DotTest.ImpTest
 
         public TestRunner()
         {
-            testContainer = new TestSuite("",false);
+            testContainer = new TestSuite("Root", false);
         }
 
         public bool AddTest(ITest test)

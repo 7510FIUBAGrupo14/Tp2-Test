@@ -11,5 +11,6 @@ namespace DotTest.Dto
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public ResultType Result { get; set; }
+        public bool Skiped { get; set; }
     }
 }

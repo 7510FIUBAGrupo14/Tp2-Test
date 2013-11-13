@@ -43,7 +43,7 @@ namespace DotTest.Output
         {
             var currentDir = Environment.CurrentDirectory;
             var directory = new DirectoryInfo(currentDir);
-            _fileName = directory.FullName + "\\TestReport_" + DateTime.Now.ToFileTime();
+            _fileName = directory.FullName + "/TestReport_" + DateTime.Now.ToFileTime();
         }
 
         private void Print(string str)

@@ -51,8 +51,8 @@ namespace ConsoleApplication1
 
             var r = new TestRunner();
             r.AddTest(test);
-            var filter = new Filter(@"False", @"Suit");
-            r.Run(new DuoComponent(),filter);
+
+            r.Run(new XMLComponent(),null);
 
             //var r2 = new TestRunner();
             //r2.AddTest(test);

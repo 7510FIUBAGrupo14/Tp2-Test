@@ -9,7 +9,7 @@ namespace DotTest.ImpTest
 {
     public abstract class TestCase : ITest
     {
-        public string FullName { get{ return Path + "\\" + Name;} }
+        public string FullName { get { return (Path != "" ? (Path + "/") : "") + Name; } }
         public string Name { get; private set; }
         public string Path { get; set; }
         public bool Skip { get; set; }
@@ -34,7 +34,9 @@ namespace DotTest.ImpTest
                 {
                     Name = Name,
                     Path = Path,
-                    StartTime = DateTime.Now
+                    FullName = FullName,
+                    StartTime = DateTime.Now,
+                    Skiped = Skip
                 };
             Setup(context);
             try
