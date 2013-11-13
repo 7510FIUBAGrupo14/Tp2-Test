@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DotTest.Enum;
 using DotTest.ImpTest;
 
@@ -13,6 +14,8 @@ namespace DotTest.Dto
         public DateTime EndTime { get; set; }
         public ResultType Result { get; set; }
         public bool Skiped { get; set; }
+        public string ResultType { get; set; }
+        public string ResultMessage { get; set; }   
 
         private ReportDto(string name, string path, string fullname, bool skiped)
         {

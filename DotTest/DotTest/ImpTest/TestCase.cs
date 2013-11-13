@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DotTest.Dto;
 using DotTest.Enum;
 using DotTest.Interface;
@@ -37,17 +38,23 @@ namespace DotTest.ImpTest
             {
                 Execute(context);
             }
-            catch (AssertException)
+            catch (AssertException e)
             {
                 dto.Result = ResultType.Fail;
+                dto.ResultType = e.GetType().ToString().Split('.').Last();
+                dto.ResultMessage = e.Message;
             }
-            catch (AssertSuccess)
+            catch (AssertSuccess e)
             {
                 dto.Result = ResultType.Ok;
+                dto.ResultType = e.GetType().ToString().Split('.').Last();
+                dto.ResultMessage = e.Message;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 dto.Result = ResultType.Error;
+                dto.ResultType = e.GetType().ToString().Split('.').Last();
+                dto.ResultMessage = e.Message;
             }
             finally
             {
