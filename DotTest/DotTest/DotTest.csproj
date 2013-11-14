@@ -53,6 +53,7 @@
     <Compile Include="ImpTest\TestSuite.cs" />
     <Compile Include="Interface\ITest.cs" />
     <Compile Include="Output\ConsoleComponent.cs" />
+    <Compile Include="Output\MockComponent.cs" />
     <Compile Include="Output\TriComponent.cs" />
     <Compile Include="Output\XMLComponent.cs" />
     <Compile Include="Output\DuoComponent.cs" />

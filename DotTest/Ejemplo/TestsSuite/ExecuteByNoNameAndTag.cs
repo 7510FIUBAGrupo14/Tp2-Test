@@ -32,7 +32,7 @@ namespace ConsoleApplication1.TestsSuite
             suite.AddTest(case3);
             suite.AddTest(case4);
 
-            var component = new FileComponent();
+            var component = new MockComponent();
             suite.Run(new Context(), component, filtro);
 
             Assert.IsTrue(case1.WasExcecuted);

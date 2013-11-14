@@ -36,7 +36,7 @@ namespace ConsoleApplication1.TestsSuite
             suite.AddTest(case5);
             suite.AddTest(case6);
 
-            var component = new FileComponent();
+            var component = new MockComponent();
             suite.Run(new Context(), component, filtro);
 
             Assert.IsFalse(case1.WasExcecuted);
