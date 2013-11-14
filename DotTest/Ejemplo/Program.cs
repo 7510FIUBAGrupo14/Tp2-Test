@@ -1,5 +1,7 @@
 ﻿using ConsoleApplication1.TestCases;
+using ConsoleApplication1.TestContext;
 using ConsoleApplication1.TestFilter;
+using ConsoleApplication1.TestsSuite;
 using DotTest.ImpTest;
 using DotTest.Output;
 
@@ -13,54 +15,67 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            var test = new TestSuite("TestCases");
-            var test2 = new TestSuite("TestFilter");
+            var testAsserts = new TestSuite("TestAsserts");
+            var testFilter = new TestSuite("TestFilter");
+            var testSuite = new TestSuite("TestSuite");
+            var testContext = new TestSuite("TestContext");
 
-            test.AddTest(new AreEqualStringsFail("AreEqualStringsFail"));
-            test.AddTest(new AreEqualStringsOk("AreEqualStringsOk"));
-            test.AddTest(new AreEqualObjectsFail("AreEqualObjectsFail"));
-            test.AddTest(new AreEqualObjectsOk("AreEqualObjectsOk"));
-            test.AddTest(new AreEqualDistinctIntFail("AreEqualDistinctIntFail"));
-            test.AddTest(new AreEqualIntOk("AreEqualIntOk"));
-            test.AddTest(new AreNotEqualStringsFail("AreNotEqualStringsFail"));
-            test.AddTest(new AreNotEqualStringsOk("AreNotEqualStringsOk"));
-            test.AddTest(new AreNotEqualObjectsFail("AreNotEqualObjectsFail"));
-            test.AddTest(new AreNotEqualObjectsOk("AreNotEqualObjectsOk"));
-            test.AddTest(new AreNotEqualIntFail("AreNotEqualIntFail"));
-            test.AddTest(new AreNotEqualIntOk("AreNotEqualIntOk"));
-            test.AddTest(new AreSameStringsOk("AreSameStringsOk"));
-            test.AddTest(new AreSameStringsFail("AreSameStringsFail"));
-            test.AddTest(new AreNotSameStringsOk("AreNotSameStringsOk"));
-            test.AddTest(new AreNotSameStringsFail("AreNotSameStringsFail"));
-            test.AddTest(new IsFalseOk("IsFalseOk"));
-            test.AddTest(new IsFalseFail("IsFalseFail"));
-            test.AddTest(new IsTrueOk("IsTrueOk"));
-            test.AddTest(new IsTrueFail("IsTrueFail"));
-            test.AddTest(new IsNullOk("IsNullOk"));
-            test.AddTest(new IsNullFail("IsNullFail"));
-            test.AddTest(new IsNotNullOk("IsNotNullOk"));
-            test.AddTest(new IsNotNullFail("IsNotNullFail"));
-            test.AddTest(new IsInstanceOfTypeOk("IsInstanceOfTypeOk"));
-            test.AddTest(new IsInstanceOfTypeFail("IsInstanceOfTypeFail"));
-            test.AddTest(new IsNotInstanceOfTypeOk("IsNotInstanceOfTypeOk"));
-            test.AddTest(new IsNotInstanceOfTypeFail("IsNotInstanceOfTypeFail"));
-            test.AddTest(new FailVoid("FailVoid"));
-            test.AddTest(new FailWithMessage("FailWithMessage"));
+            testAsserts.AddTest(new AreEqualStringsFail("AreEqualStringsFail"));
+            testAsserts.AddTest(new AreEqualStringsOk("AreEqualStringsOk"));
+            testAsserts.AddTest(new AreEqualObjectsFail("AreEqualObjectsFail"));
+            testAsserts.AddTest(new AreEqualObjectsOk("AreEqualObjectsOk"));
+            testAsserts.AddTest(new AreEqualDistinctIntFail("AreEqualDistinctIntFail"));
+            testAsserts.AddTest(new AreEqualIntOk("AreEqualIntOk"));
+            testAsserts.AddTest(new AreNotEqualStringsFail("AreNotEqualStringsFail"));
+            testAsserts.AddTest(new AreNotEqualStringsOk("AreNotEqualStringsOk"));
+            testAsserts.AddTest(new AreNotEqualObjectsFail("AreNotEqualObjectsFail"));
+            testAsserts.AddTest(new AreNotEqualObjectsOk("AreNotEqualObjectsOk"));
+            testAsserts.AddTest(new AreNotEqualIntFail("AreNotEqualIntFail"));
+            testAsserts.AddTest(new AreNotEqualIntOk("AreNotEqualIntOk"));
+            testAsserts.AddTest(new AreSameStringsOk("AreSameStringsOk"));
+            testAsserts.AddTest(new AreSameStringsFail("AreSameStringsFail"));
+            testAsserts.AddTest(new AreNotSameStringsOk("AreNotSameStringsOk"));
+            testAsserts.AddTest(new AreNotSameStringsFail("AreNotSameStringsFail"));
+            testAsserts.AddTest(new IsFalseOk("IsFalseOk"));
+            testAsserts.AddTest(new IsFalseFail("IsFalseFail"));
+            testAsserts.AddTest(new IsTrueOk("IsTrueOk"));
+            testAsserts.AddTest(new IsTrueFail("IsTrueFail"));
+            testAsserts.AddTest(new IsNullOk("IsNullOk"));
+            testAsserts.AddTest(new IsNullFail("IsNullFail"));
+            testAsserts.AddTest(new IsNotNullOk("IsNotNullOk"));
+            testAsserts.AddTest(new IsNotNullFail("IsNotNullFail"));
+            testAsserts.AddTest(new IsInstanceOfTypeOk("IsInstanceOfTypeOk"));
+            testAsserts.AddTest(new IsInstanceOfTypeFail("IsInstanceOfTypeFail"));
+            testAsserts.AddTest(new IsNotInstanceOfTypeOk("IsNotInstanceOfTypeOk"));
+            testAsserts.AddTest(new IsNotInstanceOfTypeFail("IsNotInstanceOfTypeFail"));
+            testAsserts.AddTest(new FailVoid("FailVoid"));
+            testAsserts.AddTest(new FailWithMessage("FailWithMessage"));
 
-            test2.AddTest(new FilterCaseByNameAndName("FilterCaseByNameAndName"));
-            test2.AddTest(new FilterCaseByTag("FilterCaseByTag"));
-            test2.AddTest(new FilterCaseByTagAndName("FilterCaseByTagAndName"));
-            test2.AddTest(new FilterEmpty("FilterEmpty"));
-            test2.AddTest(new FilterEmpty2("FilterEmpty2"));
-            test2.AddTest(new FilterSuiteByName("FilterSuiteByName"));
-            test2.AddTest(new NoFilterCaseByTag("NoFilterCaseByTag"));
-            test2.AddTest(new NoFilterCaseByTagAndName("NoFilterCaseByTagAndName"));
-            test2.AddTest(new NoFilterSuiteByName("NoFilterSuiteByName"));
+            testFilter.AddTest(new FilterCaseByNameAndName("FilterCaseByNameAndName"));
+            testFilter.AddTest(new FilterCaseByTag("FilterCaseByTag"));
+            testFilter.AddTest(new FilterCaseByTagAndName("FilterCaseByTagAndName"));
+            testFilter.AddTest(new FilterEmpty("FilterEmpty"));
+            testFilter.AddTest(new FilterEmpty2("FilterEmpty2"));
+            testFilter.AddTest(new FilterSuiteByName("FilterSuiteByName"));
+            testFilter.AddTest(new NoFilterCaseByTag("NoFilterCaseByTag"));
+            testFilter.AddTest(new NoFilterCaseByTagAndName("NoFilterCaseByTagAndName"));
+            testFilter.AddTest(new NoFilterSuiteByName("NoFilterSuiteByName"));
+
+            testSuite.AddTest(new ExecuteByNameAndTag("ExecuteByNameAndTag"));
+            testSuite.AddTest(new ExecuteByNoNameAndTag("ExecuteByNoNameAndTag"));
+
+            testContext.AddTest(new AddOneKey("AddOneKey"));
+            testContext.AddTest(new AddTwoKeysAndRemoveTheFirstKey("AddTwoKeysAndRemoveTheFirstKey"));
+            testContext.AddTest(new AddTwoTimesTheSameKey("AddTwoTimesTheSameKey"));
+            testContext.AddTest(new RemoveOneKey("RemoveOneKey"));
+            testContext.AddTest(new RemoveUnexpectedKey("RemoveUnexpectedKey"));
 
             var r = new TestRunner();
-            r.AddTest(test);
-            r.AddTest(test2);
-            r.Run(new DuoComponent());
+            r.AddTest(testAsserts);
+            r.AddTest(testFilter);
+            r.AddTest(testSuite);
+            r.AddTest(testContext);
+            r.Run(new TriComponent());
             
         }
     }

@@ -89,6 +89,8 @@
     <Compile Include="TestContext\AddTwoTimesTheSameKey.cs" />
     <Compile Include="TestContext\RemoveOneKey.cs" />
     <Compile Include="TestContext\RemoveUnexpectedKey.cs" />
+    <Compile Include="TestsSuite\ExecuteByNameAndTag.cs" />
+    <Compile Include="TestsSuite\ExecuteByNoNameAndTag.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
