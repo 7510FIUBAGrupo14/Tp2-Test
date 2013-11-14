@@ -96,7 +96,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void NotSkypeCaseIfTheFilterIsEmpty()
+        public void FilterEmpty2()
         {
             var tags = new List<string>();
             var filter = new Filter(tags);

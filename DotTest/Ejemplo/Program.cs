@@ -1,4 +1,5 @@
 ﻿using ConsoleApplication1.TestCases;
+using ConsoleApplication1.TestFilter;
 using DotTest.ImpTest;
 using DotTest.Output;
 
@@ -12,9 +13,8 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            var test = new TestSuite("Suit");
-            var test2 = new TestSuite("Sub");
-            var test3 = new TestSuite("SubSubSuit");
+            var test = new TestSuite("TestCases");
+            var test2 = new TestSuite("TestFilter");
 
             test.AddTest(new AreEqualStringsFail("AreEqualStringsFail"));
             test.AddTest(new AreEqualStringsOk("AreEqualStringsOk"));
@@ -33,32 +33,35 @@ namespace ConsoleApplication1
             test.AddTest(new AreNotSameStringsOk("AreNotSameStringsOk"));
             test.AddTest(new AreNotSameStringsFail("AreNotSameStringsFail"));
             test.AddTest(new IsFalseOk("IsFalseOk"));
-            test2.AddTest(new IsFalseFail("IsFalseFail"));
-            test2.AddTest(new IsTrueOk("IsTrueOk"));
-            test2.AddTest(new IsTrueFail("IsTrueFail"));
-            test2.AddTest(new IsNullOk("IsNullOk"));
-            test2.AddTest(new IsNullFail("IsNullFail"));
-            test2.AddTest(new IsNotNullOk("IsNotNullOk"));
-            test2.AddTest(new IsNotNullFail("IsNotNullFail"));
-            test2.AddTest(new IsInstanceOfTypeOk("IsInstanceOfTypeOk"));
-            test2.AddTest(new IsInstanceOfTypeFail("IsInstanceOfTypeFail"));
-            test3.AddTest(new IsNotInstanceOfTypeOk("IsNotInstanceOfTypeOk"));
-            test3.AddTest(new IsNotInstanceOfTypeFail("IsNotInstanceOfTypeFail"));
-            test3.AddTest(new FailVoid("FailVoid"));
-            test3.AddTest(new FailWithMessage("FailWithMessage"));
-            test2.AddTest(test3);
-            test.AddTest(test2);
+            test.AddTest(new IsFalseFail("IsFalseFail"));
+            test.AddTest(new IsTrueOk("IsTrueOk"));
+            test.AddTest(new IsTrueFail("IsTrueFail"));
+            test.AddTest(new IsNullOk("IsNullOk"));
+            test.AddTest(new IsNullFail("IsNullFail"));
+            test.AddTest(new IsNotNullOk("IsNotNullOk"));
+            test.AddTest(new IsNotNullFail("IsNotNullFail"));
+            test.AddTest(new IsInstanceOfTypeOk("IsInstanceOfTypeOk"));
+            test.AddTest(new IsInstanceOfTypeFail("IsInstanceOfTypeFail"));
+            test.AddTest(new IsNotInstanceOfTypeOk("IsNotInstanceOfTypeOk"));
+            test.AddTest(new IsNotInstanceOfTypeFail("IsNotInstanceOfTypeFail"));
+            test.AddTest(new FailVoid("FailVoid"));
+            test.AddTest(new FailWithMessage("FailWithMessage"));
+
+            test2.AddTest(new FilterCaseByNameAndName("FilterCaseByNameAndName"));
+            test2.AddTest(new FilterCaseByTag("FilterCaseByTag"));
+            test2.AddTest(new FilterCaseByTagAndName("FilterCaseByTagAndName"));
+            test2.AddTest(new FilterEmpty("FilterEmpty"));
+            test2.AddTest(new FilterEmpty2("FilterEmpty2"));
+            test2.AddTest(new FilterSuiteByName("FilterSuiteByName"));
+            test2.AddTest(new NoFilterCaseByTag("NoFilterCaseByTag"));
+            test2.AddTest(new NoFilterCaseByTagAndName("NoFilterCaseByTagAndName"));
+            test2.AddTest(new NoFilterSuiteByName("NoFilterSuiteByName"));
 
             var r = new TestRunner();
             r.AddTest(test);
-
-            r.Run(new XmlComponent(),null);
-
-            //var r2 = new TestRunner();
-            //r2.AddTest(test);
-            //string pattern = @"False";
-            //r2.ExecuteByName(pattern);
-            //r2.Execute();
+            r.AddTest(test2);
+            r.Run(new DuoComponent());
+            
         }
     }
 }
