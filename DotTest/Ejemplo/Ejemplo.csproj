@@ -84,6 +84,11 @@
     <Compile Include="TestFilter\FilterCaseByTagAndName.cs" />
     <Compile Include="TestFilter\NoFilterCaseByTagAndName.cs" />
     <Compile Include="TestFilter\FilterEmpty2.cs" />
+    <Compile Include="TestContext\AddOneKey.cs" />
+    <Compile Include="TestContext\AddTwoKeysAndRemoveTheFirstKey.cs" />
+    <Compile Include="TestContext\AddTwoTimesTheSameKey.cs" />
+    <Compile Include="TestContext\RemoveOneKey.cs" />
+    <Compile Include="TestContext\RemoveUnexpectedKey.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
