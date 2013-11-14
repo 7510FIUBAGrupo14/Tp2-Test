@@ -33,10 +33,15 @@ namespace DotTest.ImpTest
         {
             if (!test.Filterable) return false;
             var name = _nameCase;
-            if (test.GetType() == typeof (TestSuite)) name = _nameSuit;
+            if (test.GetType() == typeof (TestSuite))
+            {
+                name = _nameSuit;
+                var match = Regex.Match(test.Name, name);
+                return test.Skip || (!match.Success && name != "");
+            }
 
-            var match = Regex.Match(test.Name, name);
-            return test.Skip || (!match.Success && name != "") || (_tags.Any() && !test.Tags.Any( x => _tags.Any(y => y.Contains(x))));
+            var match1 = Regex.Match(test.Name, name);
+            return test.Skip || (!match1.Success && name != "") || (_tags.Any() && !test.Tags.Any( x => _tags.Any(y => y.Contains(x))));
         }
     }
 }
