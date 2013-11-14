@@ -41,7 +41,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void sf()
+        public void ExecuteByNoNameAndTag()
         {
             var case1 = new Mock.Test("T1", new List<string> { "Slow" });
             var case2 = new Mock.Test("T2", new List<string> { "Fast" });

@@ -8,7 +8,7 @@ namespace Test
     public class TestFilter
     {
         [TestMethod]
-        public void a()
+        public void FilterEmpty()
         {
             var tags = new List<string>();
             var filter = new Filter(tags);
@@ -19,7 +19,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void b()
+        public void NoFilterSuiteByName()
         {
             var tags = new List<string>();
             var filter = new Filter("","b",tags);
@@ -30,7 +30,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void c()
+        public void FilterSuiteByName()
         {
             var tags = new List<string>();
             var filter = new Filter("a", tags);
@@ -41,7 +41,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void d()
+        public void FilterCaseByTag()
         {
             var tags = new List<string>{"uno"};
             var filter = new Filter(tags);
@@ -52,7 +52,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void e()
+        public void NoFilterCaseByTag()
         {
             var tags = new List<string> { "uno" };
             var filter = new Filter(tags);
@@ -63,7 +63,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void f()
+        public void FilterCaseByNameAndName()
         {
             var tags = new List<string> { "uno" };
             var filter = new Filter("b",tags);
@@ -74,7 +74,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void g()
+        public void FilterCaseByTagAndName()
         {
             var tags = new List<string> { "dos" };
             var filter = new Filter("a", tags);
@@ -85,7 +85,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void h()
+        public void NoFilterCaseByTagAndName()
         {
             var tags = new List<string> { "uno" };
             var filter = new Filter("a", tags);
@@ -93,6 +93,18 @@ namespace Test
             var test = new Mock.Test("a", new List<string> { "uno" });
 
             Assert.IsFalse(filter.Skip(test));
+        }
+
+        [TestMethod]
+        public void NotSkypeCaseIfTheFilterIsEmpty()
+        {
+            var tags = new List<string>();
+            var filter = new Filter(tags);
+
+            var test2 = new Mock.Test("a", new List<string> { "dos" });
+
+            Assert.IsFalse(filter.Skip(test2));
+
         }
     }
 }
