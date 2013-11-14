@@ -11,19 +11,18 @@ namespace Test.Mock
         {
         }
 
+        public bool WasExcecuted{ get; set; }
         public override void Setup(IContext context)
         {
-            throw new NotImplementedException();
         }
 
         public override void Execute(IContext context)
         {
-            throw new NotImplementedException();
+            WasExcecuted = true;
         }
 
         public override void TearDown(IContext context)
         {
-            throw new NotImplementedException();
         }
     }
 }
