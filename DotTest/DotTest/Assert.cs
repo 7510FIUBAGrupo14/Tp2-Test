@@ -11,7 +11,8 @@ namespace DotTest
     {
         public static void AreEqual(object a, object b)
         {
-            if ( !a.Equals(b))
+            if (a == null && b == null) throw new AssertSuccess(); 
+            if (!a.Equals(b))
             {
                 throw new AssertException("Not Equal");
             }
@@ -20,7 +21,7 @@ namespace DotTest
 
         public static void AreNotEqual(object a, object b)
         {
-            if (a.Equals(b))
+            if ((a == null && b == null) || a.Equals(b))
             {
                 throw new AssertException("Equal");
             }
