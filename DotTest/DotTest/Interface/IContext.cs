@@ -1,7 +1,7 @@
 ﻿namespace DotTest.Interface
 {
     /// <summary> 
-    /// Test Case Interface provided for User usage. All User test cases must implement this interface.
+    /// Interface defining fixture usabilty. 
     /// </summary>
     
     public interface IContext

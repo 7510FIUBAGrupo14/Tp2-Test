@@ -5,6 +5,10 @@ using DotTest.Enum;
 
 namespace DotTest.Output.Xml
 {
+    /// <summary> 
+    /// XML Node for test Case. For XML output, gathers the node information of a specific case test. 
+    /// </summary>
+    
     public class XmlCase : IXmlNode
     {
         private Queue<string> paths;

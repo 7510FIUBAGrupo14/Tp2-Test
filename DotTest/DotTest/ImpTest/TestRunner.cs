@@ -2,6 +2,10 @@
 
 namespace DotTest.ImpTest
 {
+    /// <summary> 
+    /// Add user tests and runs them.
+    /// </summary>
+    
     public class TestRunner
     {
         private readonly TestSuite testContainer;

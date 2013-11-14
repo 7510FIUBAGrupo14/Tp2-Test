@@ -5,6 +5,10 @@ using DotTest.Interface;
 
 namespace DotTest.Output
 {
+    /// <summary> 
+    /// Prints on console all tests' run.
+    /// </summary>
+    
     public class ConsoleComponent : IOutputComponent
     {
         private int _errorCount;

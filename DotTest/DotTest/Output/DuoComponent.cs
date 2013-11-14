@@ -5,6 +5,10 @@ using DotTest.Interface;
 
 namespace DotTest.Output
 {
+    /// <summary> 
+    /// Prints both on console and plain file all tests' run.
+    /// </summary>
+    
     public class DuoComponent : IOutputComponent
     {
         private ConsoleComponent _console;

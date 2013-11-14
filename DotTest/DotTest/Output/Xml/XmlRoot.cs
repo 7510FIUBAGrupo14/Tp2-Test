@@ -3,6 +3,10 @@ using System.Xml.Linq;
 
 namespace DotTest.Output.Xml
 {
+    /// <summary> 
+    /// XML Root Node. For XML output, summarize information on root node. 
+    /// </summary>
+    
     public class XmlRoot : IXmlNode
     {
         private IXmlNode root;

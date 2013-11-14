@@ -3,7 +3,7 @@
 namespace DotTest.Interface
 {
     /// <summary> 
-    /// Test Case Interface provided for User usage. All User test cases must implement this interface.
+    /// Main Test Interface. Declares common methods to implement tests. 
     /// </summary>
     
     public interface ITest

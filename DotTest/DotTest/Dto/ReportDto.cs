@@ -5,6 +5,10 @@ using DotTest.ImpTest;
 
 namespace DotTest.Dto
 {
+    /// <summary> 
+    /// To be used to get test result. This clase may return ReportDto for case or suite test depending on type of test.
+    /// </summary>
+ 
     public class ReportDto
     {
         public string Name { get; set; }

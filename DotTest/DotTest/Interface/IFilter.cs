@@ -1,6 +1,9 @@
 ﻿
 namespace DotTest.Interface
 {
+    /// <summary> 
+    /// Filter Interface. 
+    /// </summary>
     
     public interface IFilter
     {

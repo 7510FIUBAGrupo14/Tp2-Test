@@ -7,8 +7,9 @@ using DotTest.Interface;
 namespace DotTest.ImpTest
 {
     /// <summary> 
-    /// Container of user test cases. Allows to store new user test and to excecute them all usabillity
+    /// Test Suite provided for User usage. All User's test suites must implement this class. 
     /// </summary>
+    
     public class TestSuite : ITest
     {
         private readonly List<ITest> _tests;

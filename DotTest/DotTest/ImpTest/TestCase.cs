@@ -8,6 +8,10 @@ using System.Text.RegularExpressions;
 
 namespace DotTest.ImpTest
 {
+    /// <summary> 
+    /// Test Case provided for User usage. All User's test cases must implement this class.
+    /// </summary>
+    
     public abstract class TestCase : ITest
     {
         public string FullName { get { return (Path != "" ? (Path + "/") : "") + Name; } }

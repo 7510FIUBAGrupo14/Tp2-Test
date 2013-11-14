@@ -6,6 +6,10 @@ using DotTest.Interface;
 
 namespace DotTest.ImpTest
 {
+    /// <summary> 
+    /// capability of adding tags on test. It has decision to skip a test.
+    /// </summary>
+    
     public class Filter : IFilter
     {
         private string _nameCase;

@@ -3,6 +3,10 @@ using System.Xml.Linq;
 
 namespace DotTest.Output.Xml
 {
+    /// <summary> 
+    /// XML Node Interface. For XML output, gathers the node information of a specific test. 
+    /// </summary>
+    
     public interface IXmlNode
     {
         string Name { get;}

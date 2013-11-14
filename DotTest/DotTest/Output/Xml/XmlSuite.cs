@@ -5,6 +5,10 @@ using DotTest.Dto;
 
 namespace DotTest.Output.Xml
 {
+    /// <summary> 
+    /// XML Node for test Suite. For XML output, gathers the node information of a specific suite test. 
+    /// </summary>
+    
     public class XmlSuite : IXmlNode
     {
         private Queue<string> paths;

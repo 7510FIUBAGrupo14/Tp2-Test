@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace DotTest.ImpTest
 {
+    /// <summary> 
+    /// Fixture where the user may set his test environment objects
+    /// </summary>
+    
     public class Context : IContext
     {
         private Dictionary<string, object> fixture;

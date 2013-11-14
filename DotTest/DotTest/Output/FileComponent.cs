@@ -6,6 +6,10 @@ using DotTest.Interface;
 
 namespace DotTest.Output
 {
+    /// <summary> 
+    /// Prints on plain file all tests' run.
+    /// </summary>
+    
     public class FileComponent : IOutputComponent
     {
         private string _fileName;

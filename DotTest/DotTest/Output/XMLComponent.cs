@@ -7,6 +7,10 @@ using DotTest.Output.Xml;
 
 namespace DotTest.Output
 {
+    /// <summary> 
+    /// Prints on XML file, based on schema, all tests' run.
+    /// </summary>
+    
     public class XmlComponent : IOutputComponent
     {
         private string _fileName;
