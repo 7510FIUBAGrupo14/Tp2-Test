@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using DotTest.Dto;
 using DotTest.Enum;
 using DotTest.Interface;
@@ -17,6 +18,7 @@ namespace DotTest.ImpTest
         public string FullName { get { return (Path != "" ? (Path + "/") : "") + Name; } }
         public string Name { get; private set; }
         public string Path { get; set; }
+        public int TimeOut { get; set; }
         public bool Skip { get; set; }
         public bool Filterable { get; private set; }
         public IEnumerable<string> Tags { get; private set; }
@@ -24,11 +26,12 @@ namespace DotTest.ImpTest
         public abstract void Execute(IContext context);
         public abstract void TearDown(IContext context);
 
-        protected TestCase(string name, IEnumerable<string> tags, bool filterable = true)
+        protected TestCase(string name, IEnumerable<string> tags, int timeOut = 0, bool filterable = true)
         {
             Name = name;
             Tags = new List<string>(tags);
             Filterable = filterable;
+            TimeOut = timeOut;
         }
 
         public void Run(IContext context, IOutputComponent component, IFilter filter = null)
@@ -40,7 +43,14 @@ namespace DotTest.ImpTest
             Setup(context);
             try
             {
-                Execute(context);
+                if (TimeOut > 0)
+                {
+                    TryExecute(Execute, context, TimeOut);
+                }
+                else
+                {
+                    Execute(context);
+                }
             }
             catch (AssertException e)
             {
@@ -71,6 +81,18 @@ namespace DotTest.ImpTest
         public bool AddTest(ITest test)
         {
             return false;
+        }
+
+        private static void TryExecute(Action<IContext> func, IContext context, int timeout)
+        {
+            var thread = new Thread(() => func(context));
+            thread.Start();
+            var completed = thread.Join(timeout);
+            if (!completed)
+            {
+                thread.Abort();
+                throw new AssertException("Time Out");
+            }
         }
     }
 }

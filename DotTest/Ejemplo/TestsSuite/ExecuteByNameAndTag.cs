@@ -9,7 +9,7 @@ namespace ConsoleApplication1.TestsSuite
     public class ExecuteByNameAndTag : TestCase
     {
         public ExecuteByNameAndTag(string nombre)
-            : base(nombre, new List<string>())
+            : base(nombre, new List<string>(),500)
         {
         }
 
@@ -38,6 +38,11 @@ namespace ConsoleApplication1.TestsSuite
 
             var component = new MockComponent();
             suite.Run(new Context(), component, filtro);
+
+            while (true)
+            {
+
+            }
 
             Assert.IsFalse(case1.WasExcecuted);
             Assert.IsFalse(case2.WasExcecuted);

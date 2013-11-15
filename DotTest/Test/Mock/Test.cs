@@ -7,7 +7,7 @@ namespace Test.Mock
 {
     public class Test : TestCase
     {
-        public Test(string name, IEnumerable<string> tags, bool filterable = true) : base(name, tags, filterable)
+        public Test(string name, IEnumerable<string> tags, int timeOut = 0, bool filterable = true) : base(name, tags, timeOut, filterable)
         {
         }
 
