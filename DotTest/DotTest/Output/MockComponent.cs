@@ -9,14 +9,14 @@ namespace DotTest.Output
     /// Prints both on console and plain file all tests' run.
     /// </summary>
     
-    public class MockComponent : IOutputComponent
+    public class MockComponent : IInpOutComponent
     {
   
-        public void PrintTestCase(ReportDto dto)
+        public void PrintTestCase(CaseDto dto)
         {
         }
 
-        public void PrintTestSuite(ReportDto dto)
+        public void PrintTestSuite(SuiteDto dto)
         {
         }
 
@@ -24,5 +24,9 @@ namespace DotTest.Output
         {
         }
 
+        public bool SkipeCase(CaseDto dto)
+        {
+            return false;
+        }
     }
 }

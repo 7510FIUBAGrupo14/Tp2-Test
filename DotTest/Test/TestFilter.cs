@@ -15,7 +15,7 @@ namespace Test
 
             var test = new TestSuite("a");
 
-            Assert.IsFalse(filter.Skip(test));
+            Assert.IsFalse(filter.Skip(Factory.SuiteDto(test)));
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace Test
 
             var test = new TestSuite("a");
 
-            Assert.IsTrue(filter.Skip(test));
+            Assert.IsTrue(filter.Skip(Factory.SuiteDto(test)));
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace Test
 
             var test = new TestSuite("a");
 
-            Assert.IsFalse(filter.Skip(test));
+            Assert.IsFalse(filter.Skip(Factory.SuiteDto(test)));
         }
 
         [TestMethod]
@@ -48,7 +48,7 @@ namespace Test
 
             var test = new Mock.Test("a", new List<string> {"dos"});
 
-            Assert.IsTrue(filter.Skip(test));
+            Assert.IsTrue(filter.Skip(Factory.CaseDto(test)));
         }
 
         [TestMethod]
@@ -59,7 +59,7 @@ namespace Test
 
             var test = new Mock.Test("a", new List<string> { "uno" });
 
-            Assert.IsFalse(filter.Skip(test));
+            Assert.IsFalse(filter.Skip(Factory.CaseDto(test)));
         }
 
         [TestMethod]
@@ -70,7 +70,7 @@ namespace Test
 
             var test = new Mock.Test("a", new List<string> { "uno" });
 
-            Assert.IsTrue(filter.Skip(test));
+            Assert.IsTrue(filter.Skip(Factory.CaseDto(test)));
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@ namespace Test
 
             var test = new Mock.Test("a", new List<string> { "uno" });
 
-            Assert.IsTrue(filter.Skip(test));
+            Assert.IsTrue(filter.Skip(Factory.CaseDto(test)));
         }
 
         [TestMethod]
@@ -92,7 +92,7 @@ namespace Test
 
             var test = new Mock.Test("a", new List<string> { "uno" });
 
-            Assert.IsFalse(filter.Skip(test));
+            Assert.IsFalse(filter.Skip(Factory.CaseDto(test)));
         }
 
         [TestMethod]
@@ -103,7 +103,7 @@ namespace Test
 
             var test2 = new Mock.Test("a", new List<string> { "dos" });
 
-            Assert.IsFalse(filter.Skip(test2));
+            Assert.IsFalse(filter.Skip(Factory.CaseDto(test2)));
 
         }
     }

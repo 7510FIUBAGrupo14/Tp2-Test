@@ -18,7 +18,7 @@ namespace DotTest.Output.Xml
         public Dictionary<string, string> Attributes { get; set; }
         public Dictionary<string, double> GeneralAttributes { get; set; }
 
-        public XmlSuite(ReportDto report)
+        public XmlSuite(SuiteDto report)
         {
             _nodes = new List<IXmlNode>();
             paths = new Queue<string>();

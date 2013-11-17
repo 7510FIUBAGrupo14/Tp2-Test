@@ -23,7 +23,7 @@ namespace ConsoleApplication1.TestFilter
 
             var test = new TestSuite("a");
 
-            Assert.IsFalse(filter.Skip(test));
+            Assert.IsFalse(filter.Skip(Factory.SuiteDto(test)));
         }
 
         public override void TearDown(IContext context)

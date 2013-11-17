@@ -1,4 +1,6 @@
 ﻿
+using DotTest.Dto;
+
 namespace DotTest.Interface
 {
     /// <summary> 
@@ -7,6 +9,7 @@ namespace DotTest.Interface
     
     public interface IFilter
     {
-        bool Skip(ITest test);
+        bool Skip(CaseDto test);
+        bool Skip(SuiteDto test);
     }
 }

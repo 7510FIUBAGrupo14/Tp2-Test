@@ -9,13 +9,13 @@ namespace DotTest.Output
     /// Prints on console all tests' run.
     /// </summary>
     
-    public class ConsoleComponent : IOutputComponent
+    public class ConsoleComponent : IInpOutComponent
     {
         private int _errorCount;
         private int _failureCount;
         private int _okCount;
 
-        public void PrintTestCase(ReportDto dto)
+        public void PrintTestCase(CaseDto dto)
         {
             Console.WriteLine("[" + dto.Result + "] " + dto.Name);
             if (dto.Result == ResultType.Error) _errorCount++;
@@ -23,7 +23,7 @@ namespace DotTest.Output
             if (dto.Result == ResultType.Ok) _okCount++;
         }
 
-        public void PrintTestSuite(ReportDto dto)
+        public void PrintTestSuite(SuiteDto dto)
         {
             Console.WriteLine("\n" + dto.FullName + "\n---------------");
         }
@@ -37,6 +37,11 @@ namespace DotTest.Output
             ret += "Errors: " + _errorCount + "\n";
             ret += "Failures: " + _failureCount + "\n";
             Console.WriteLine(ret);
+        }
+
+        public bool SkipeCase(CaseDto dto)
+        {
+            return false;
         }
     }
 }

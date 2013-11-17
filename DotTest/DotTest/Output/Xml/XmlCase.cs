@@ -16,7 +16,7 @@ namespace DotTest.Output.Xml
         public Dictionary<string, string> Attributes { get; set; }
         public Dictionary<string, double> GeneralAttributes { get; set; }
 
-        public XmlCase(ReportDto report)
+        public XmlCase(CaseDto report)
         {
             paths = new Queue<string>();
             Attributes = new Dictionary<string, string>();

@@ -11,16 +11,16 @@ namespace DotTest.Output
     /// Prints on XML file, based on schema, all tests' run.
     /// </summary>
     
-    public class XmlComponent : IOutputComponent
+    public class XmlComponent : IInpOutComponent
     {
         private string _fileName;
         private XmlRoot testRoot;
-        public void PrintTestCase(ReportDto dto)
+        public void PrintTestCase(CaseDto dto)
         {
             testRoot.AddNode(new XmlCase(dto));
         }
 
-        public void PrintTestSuite(ReportDto dto)
+        public void PrintTestSuite(SuiteDto dto)
         {
             testRoot.AddNode(new XmlSuite(dto));            
         }
@@ -46,5 +46,9 @@ namespace DotTest.Output
             fileS.Close();
         }
 
+        public bool SkipeCase(CaseDto dto)
+        {
+            return false;
+        }
     }
 }

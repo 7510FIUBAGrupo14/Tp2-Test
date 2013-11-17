@@ -39,21 +39,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dto\ReportDto.cs" />
+    <Compile Include="Dto\SuiteDto.cs" />
+    <Compile Include="Dto\CaseDto.cs" />
     <Compile Include="Enum\ResultType.cs" />
     <Compile Include="ImpTest\Context.cs" />
+    <Compile Include="ImpTest\Factory.cs" />
     <Compile Include="ImpTest\Filter.cs" />
     <Compile Include="ImpTest\TestCase.cs" />
     <Compile Include="Assert.cs" />
     <Compile Include="AssertException.cs" />
     <Compile Include="ImpTest\TestRunner.cs" />
+    <Compile Include="Interface\IInputComponent.cs" />
+    <Compile Include="Interface\IOutputComponent.cs" />
     <Compile Include="Interface\IFilter.cs" />
     <Compile Include="Interface\IContext.cs" />
-    <Compile Include="Interface\IOutputComponent.cs" />
+    <Compile Include="Interface\IInpOutComponent.cs" />
     <Compile Include="ImpTest\TestSuite.cs" />
     <Compile Include="Interface\ITest.cs" />
     <Compile Include="Output\ConsoleComponent.cs" />
     <Compile Include="Output\MockComponent.cs" />
+    <Compile Include="Output\Store\StoreFileComponent.cs" />
     <Compile Include="Output\TriComponent.cs" />
     <Compile Include="Output\XMLComponent.cs" />
     <Compile Include="Output\DuoComponent.cs" />

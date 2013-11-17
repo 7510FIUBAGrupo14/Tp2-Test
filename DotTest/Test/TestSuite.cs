@@ -29,7 +29,7 @@ namespace Test
             suite.AddTest(case5);
             suite.AddTest(case6);
 
-            var component = new Mock<IOutputComponent>();
+            var component = new Mock<IInpOutComponent>();
             suite.Run(new Context(), component.Object,filtro);
 
             Assert.IsFalse(case1.WasExcecuted);
@@ -56,7 +56,7 @@ namespace Test
             suite.AddTest(case3);
             suite.AddTest(case4);
 
-            var component = new Mock<IOutputComponent>();
+            var component = new Mock<IInpOutComponent>();
             suite.Run(new Context(), component.Object, filtro);
 
             Assert.IsTrue(case1.WasExcecuted);

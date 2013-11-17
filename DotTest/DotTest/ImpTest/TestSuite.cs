@@ -72,9 +72,9 @@ namespace DotTest.ImpTest
 
         public void Run(IContext context, IOutputComponent component, IFilter filter = null)
         {
-            if (filter != null && filter.Skip(this)) return;
+            var dto = Factory.SuiteDto(this);
 
-            var dto = ReportDto.FromTestSuiteFactory(this);
+            if (filter != null && filter.Skip(dto)) return;
 
             component.PrintTestSuite(dto);
 

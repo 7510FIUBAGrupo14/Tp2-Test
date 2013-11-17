@@ -9,7 +9,7 @@ namespace DotTest.Output
     /// Prints both on console and plain file all tests' run.
     /// </summary>
     
-    public class TriComponent : IOutputComponent
+    public class TriComponent : IInpOutComponent
     {
         private ConsoleComponent _console;
         private FileComponent _file;
@@ -20,14 +20,14 @@ namespace DotTest.Output
             _file = new FileComponent();
             _xml = new XmlComponent();
         }
-        public void PrintTestCase(ReportDto dto)
+        public void PrintTestCase(CaseDto dto)
         {
             _console.PrintTestCase(dto);
             _file.PrintTestCase(dto);
             _xml.PrintTestCase(dto);
         }
 
-        public void PrintTestSuite(ReportDto dto)
+        public void PrintTestSuite(SuiteDto dto)
         {
             _console.PrintTestSuite(dto);
             _file.PrintTestSuite(dto);
@@ -39,6 +39,11 @@ namespace DotTest.Output
             _console.PrintSummary();
             _file.PrintSummary();
             _xml.PrintSummary();
+        }
+
+        public bool SkipeCase(CaseDto dto)
+        {
+            return false;
         }
 
     }

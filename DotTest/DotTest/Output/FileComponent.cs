@@ -10,14 +10,14 @@ namespace DotTest.Output
     /// Prints on plain file all tests' run.
     /// </summary>
     
-    public class FileComponent : IOutputComponent
+    public class FileComponent : IInpOutComponent
     {
         private string _fileName;
         private int _errorCount;
         private int _failureCount;
         private int _okCount;
 
-        public void PrintTestCase(ReportDto dto)
+        public void PrintTestCase(CaseDto dto)
         {
             Print("[" + dto.Result + "] " + dto.Name);
 
@@ -27,7 +27,7 @@ namespace DotTest.Output
 
         }
 
-        public void PrintTestSuite(ReportDto dto)
+        public void PrintTestSuite(SuiteDto dto)
         {
             Print("\n" + dto.FullName + "\n---------------");
         }
@@ -57,5 +57,9 @@ namespace DotTest.Output
             fileS.Close();
         }
 
+        public bool SkipeCase(CaseDto dto)
+        {
+            return false;
+        }
     }
 }

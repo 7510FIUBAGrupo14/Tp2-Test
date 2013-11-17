@@ -1,4 +1,6 @@
-﻿using DotTest.Interface;
+﻿using System.Collections.Generic;
+using System.Linq;
+using DotTest.Interface;
 
 namespace DotTest.ImpTest
 {
@@ -9,7 +11,6 @@ namespace DotTest.ImpTest
     public class TestRunner
     {
         private readonly TestSuite testContainer;
-
         public TestRunner()
         {
             testContainer = new TestSuite("Root", false);

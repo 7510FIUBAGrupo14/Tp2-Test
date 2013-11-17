@@ -23,7 +23,7 @@ namespace ConsoleApplication1.TestFilter
 
             var test = new Test("a", new List<string> { "uno" });
 
-            Assert.IsFalse(filter.Skip(test));
+            Assert.IsFalse(filter.Skip(Factory.CaseDto(test)));
         }
 
         public override void TearDown(IContext context)

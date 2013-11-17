@@ -75,7 +75,9 @@ namespace ConsoleApplication1
             r.AddTest(testFilter);
             r.AddTest(testSuite);
             r.AddTest(testContext);
-            r.Run(new TriComponent());
+
+            var inoutComponent = new DuoComponent();
+            r.Run(inoutComponent, new Filter(inoutComponent));
             
         }
     }

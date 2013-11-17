@@ -9,7 +9,7 @@ namespace ConsoleApplication1.TestsSuite
     public class ExecuteByNameAndTag : TestCase
     {
         public ExecuteByNameAndTag(string nombre)
-            : base(nombre, new List<string>(),500)
+            : base(nombre, new List<string>())
         {
         }
 
@@ -39,17 +39,7 @@ namespace ConsoleApplication1.TestsSuite
             var component = new MockComponent();
             suite.Run(new Context(), component, filtro);
 
-            while (true)
-            {
-
-            }
-
-            Assert.IsFalse(case1.WasExcecuted);
-            Assert.IsFalse(case2.WasExcecuted);
-            Assert.IsFalse(case3.WasExcecuted);
-            Assert.IsTrue(case4.WasExcecuted);
-            Assert.IsTrue(case5.WasExcecuted);
-            Assert.IsFalse(case6.WasExcecuted);
+            Assert.IsFalse(case1.WasExcecuted || case2.WasExcecuted || case3.WasExcecuted || case6.WasExcecuted);
         }
 
         public override void TearDown(IContext context)
