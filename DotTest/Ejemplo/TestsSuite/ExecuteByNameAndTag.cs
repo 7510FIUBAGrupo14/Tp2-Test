@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using DotTest;
 using DotTest.ImpTest;
 using DotTest.Interface;
@@ -9,7 +10,7 @@ namespace ConsoleApplication1.TestsSuite
     public class ExecuteByNameAndTag : TestCase
     {
         public ExecuteByNameAndTag(string nombre)
-            : base(nombre, new List<string>())
+            : base(nombre, new List<string>(),5000)
         {
         }
 
@@ -35,7 +36,7 @@ namespace ConsoleApplication1.TestsSuite
             suite.AddTest(case4);
             suite.AddTest(case5);
             suite.AddTest(case6);
-
+            Thread.Sleep(3000);
             var component = new MockComponent();
             suite.Run(new Context(), component, filtro);
 

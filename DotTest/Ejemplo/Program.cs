@@ -76,7 +76,7 @@ namespace ConsoleApplication1
             r.AddTest(testSuite);
             r.AddTest(testContext);
 
-            var inoutComponent = new DuoComponent();
+            var inoutComponent = new XmlComponent();
             r.Run(inoutComponent, new Filter(inoutComponent));
             
         }

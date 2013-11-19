@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using DotTest.Dto;
 using DotTest.Enum;
 using DotTest.Interface;
@@ -85,14 +86,22 @@ namespace DotTest.ImpTest
 
         private static void TryExecute(Action<IContext> func, IContext context, int timeout)
         {
-            var thread = new Thread(() => func(context));
-            thread.Start();
-            var completed = thread.Join(timeout);
-            if (!completed)
+            var task = Task.Factory.StartNew(() => func(context));
+            try
             {
-                thread.Abort();
-                throw new AssertException("Time Out");
+                if (!task.Wait(timeout))
+                {
+                    throw new AssertException("Time Out");
+                }
             }
+            catch (AggregateException ex)
+            {
+                foreach (var e in ex.InnerExceptions)
+                {
+                    throw e;
+                }
+            }
+            
         }
     }
 }
