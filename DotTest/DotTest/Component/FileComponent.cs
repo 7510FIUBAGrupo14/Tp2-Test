@@ -1,31 +1,35 @@
 ﻿using System;
+using System.IO;
 using DotTest.Dto;
 using DotTest.Enum;
 using DotTest.Interface;
 
-namespace DotTest.Output
+namespace DotTest.Component
 {
     /// <summary> 
-    /// Prints on console all tests' run.
+    /// Prints on plain file all tests' run.
     /// </summary>
     
-    public class ConsoleComponent : IInpOutComponent
+    public class FileComponent : IInpOutComponent
     {
+        private string _fileName;
         private int _errorCount;
         private int _failureCount;
         private int _okCount;
 
         public void PrintTestCase(CaseDto dto)
         {
-            Console.WriteLine("[" + dto.Result + "] " + dto.Name);
+            Print("[" + dto.Result + "] " + dto.Name);
+
             if (dto.Result == ResultType.Error) _errorCount++;
             if (dto.Result == ResultType.Fail) _failureCount++;
             if (dto.Result == ResultType.Ok) _okCount++;
+
         }
 
         public void PrintTestSuite(SuiteDto dto)
         {
-            Console.WriteLine("\n" + dto.FullName + "\n---------------");
+            Print("\n" + dto.FullName + "\n---------------");
         }
 
         public void PrintSummary()
@@ -36,7 +40,21 @@ namespace DotTest.Output
             ret += "Ok: " + _okCount + "\n";
             ret += "Errors: " + _errorCount + "\n";
             ret += "Failures: " + _failureCount + "\n";
-            Console.WriteLine(ret);
+            Print(ret);
+        }
+
+        public FileComponent()
+        {
+            var currentDir = Environment.CurrentDirectory;
+            var directory = new DirectoryInfo(currentDir);
+            _fileName = directory.FullName + "/TestReport_" + DateTime.Now.ToFileTime();
+        }
+
+        private void Print(string str)
+        {
+            var fileS = new StreamWriter(_fileName,true);
+            fileS.WriteLine(str);
+            fileS.Close();
         }
 
         public bool SkipeCase(CaseDto dto)

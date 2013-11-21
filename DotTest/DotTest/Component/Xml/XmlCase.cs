@@ -3,7 +3,7 @@ using System.Xml.Linq;
 using DotTest.Dto;
 using DotTest.Enum;
 
-namespace DotTest.Output.Xml
+namespace DotTest.Component.Xml
 {
     /// <summary> 
     /// XML Node for test Case. For XML output, gathers the node information of a specific case test. 

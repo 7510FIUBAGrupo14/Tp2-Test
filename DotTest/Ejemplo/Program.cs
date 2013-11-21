@@ -2,8 +2,9 @@
 using ConsoleApplication1.TestContext;
 using ConsoleApplication1.TestFilter;
 using ConsoleApplication1.TestsSuite;
+using DotTest.Component;
+using DotTest.Component.Store;
 using DotTest.ImpTest;
-using DotTest.Output;
 
 namespace ConsoleApplication1
 {
@@ -76,7 +77,7 @@ namespace ConsoleApplication1
             r.AddTest(testSuite);
             r.AddTest(testContext);
 
-            var inoutComponent = new XmlComponent();
+            var inoutComponent = new DuoComponent();
             r.Run(inoutComponent, new Filter(inoutComponent));
             
         }

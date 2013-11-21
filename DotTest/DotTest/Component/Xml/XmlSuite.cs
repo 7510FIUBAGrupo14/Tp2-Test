@@ -3,7 +3,7 @@ using System.Linq;
 using System.Xml.Linq;
 using DotTest.Dto;
 
-namespace DotTest.Output.Xml
+namespace DotTest.Component.Xml
 {
     /// <summary> 
     /// XML Node for test Suite. For XML output, gathers the node information of a specific suite test. 

@@ -1,44 +1,47 @@
-﻿using System;
-using System.IO;
-using DotTest.Dto;
+﻿using DotTest.Dto;
 using DotTest.Interface;
 
-namespace DotTest.Output
+namespace DotTest.Component
 {
     /// <summary> 
     /// Prints both on console and plain file all tests' run.
     /// </summary>
     
-    public class DuoComponent : IInpOutComponent
+    public class TriComponent : IInpOutComponent
     {
         private ConsoleComponent _console;
-        private StoreFileComponent _file;
-        public DuoComponent()
+        private FileComponent _file;
+        private XmlComponent _xml;
+        public TriComponent()
         {
             _console = new ConsoleComponent();
-            _file = new StoreFileComponent();
+            _file = new FileComponent();
+            _xml = new XmlComponent();
         }
         public void PrintTestCase(CaseDto dto)
         {
             _console.PrintTestCase(dto);
             _file.PrintTestCase(dto);
+            _xml.PrintTestCase(dto);
         }
 
         public void PrintTestSuite(SuiteDto dto)
         {
             _console.PrintTestSuite(dto);
             _file.PrintTestSuite(dto);
+            _xml.PrintTestSuite(dto);
         }
 
         public void PrintSummary()
         {
             _console.PrintSummary();
             _file.PrintSummary();
+            _xml.PrintSummary();
         }
 
         public bool SkipeCase(CaseDto dto)
         {
-            return _file.SkipeCase(dto);
+            return false;
         }
 
     }

@@ -6,7 +6,7 @@ using DotTest.Dto;
 using DotTest.Enum;
 using DotTest.Interface;
 
-namespace DotTest.Output
+namespace DotTest.Component.Store
 {
     /// <summary> 
     /// Prints on plain file all tests' run.

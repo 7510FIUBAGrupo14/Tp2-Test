@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Linq;
 
-namespace DotTest.Output.Xml
+namespace DotTest.Component.Xml
 {
     /// <summary> 
     /// XML Root Node. For XML output, summarize information on root node. 

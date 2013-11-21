@@ -1,9 +1,7 @@
-﻿using System;
-using System.IO;
-using DotTest.Dto;
+﻿using DotTest.Dto;
 using DotTest.Interface;
 
-namespace DotTest.Output
+namespace DotTest.Component
 {
     /// <summary> 
     /// Prints both on console and plain file all tests' run.

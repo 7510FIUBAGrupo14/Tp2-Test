@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using DotTest;
+using DotTest.Component;
 using DotTest.ImpTest;
 using DotTest.Interface;
-using DotTest.Output;
 
 namespace ConsoleApplication1.TestsSuite
 {

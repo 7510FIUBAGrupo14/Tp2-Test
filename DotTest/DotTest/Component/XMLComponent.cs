@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Xml.Linq;
+using DotTest.Component.Xml;
 using DotTest.Dto;
 using DotTest.Interface;
-using DotTest.Output.Xml;
 
-namespace DotTest.Output
+namespace DotTest.Component
 {
     /// <summary> 
     /// Prints on XML file, based on schema, all tests' run.

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Linq;
 
-namespace DotTest.Output.Xml
+namespace DotTest.Component.Xml
 {
     /// <summary> 
     /// XML Node Interface. For XML output, gathers the node information of a specific test. 
